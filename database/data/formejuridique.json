@@ -1,0 +1,11 @@
+[
+    { "nom": "Société Anonyme (S.A)" },
+    { "nom": "Société Anonyme Simplifiée (SAS)" },
+    { "nom": "Société à Responsabilité Limitée (SARL)" },
+    { "nom": "groupement d’intérêt économique (GIE)" },
+    { "nom": "Société en nom collectif (SNC) " },
+    { "nom": "Société en Commandite Simple (SCS)" },
+    { "nom": "Société en Commandite par Actions (SCA) " },
+    { "nom": "Succursale" },
+    { "nom": "Entreprise individuelle" }
+]

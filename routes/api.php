@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProjetController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,3 +23,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', [AuthController::class, 'register']);
 
 Route::post('login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => ['auth:api']], function () {
+    //project filters
+    Route::get('/projet_filters',[ProjetController::class,'filters']);
+
+    //projets crud
+    Route::get('/projets',[ProjetController::class,'index']);
+    Route::post('/create_projet',[ProjetController::class,'store']);
+});
