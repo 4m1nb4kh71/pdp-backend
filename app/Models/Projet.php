@@ -20,4 +20,7 @@ class Projet extends Model
         'formejuridique_id',
         
     ];
+    public function associes(){
+        return $this->hasMany(Associe::class); 
+    }
 }

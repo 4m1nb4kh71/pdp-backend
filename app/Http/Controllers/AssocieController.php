@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Associe;
 use App\Http\Requests\StoreAssocieRequest;
 use App\Http\Requests\UpdateAssocieRequest;
-
+use App\Models\Expduration;
+use Carbon\Carbon;
 class AssocieController extends Controller
 {
     /**
@@ -13,6 +14,11 @@ class AssocieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function filters(){
+        $expduration = Expduration::all();
+        return $expduration;
+    }
     public function index()
     {
         //
@@ -37,6 +43,18 @@ class AssocieController extends Controller
     public function store(StoreAssocieRequest $request)
     {
         //
+        $associe = Associe::create([
+            'projet_id'=>$request->projet_id,
+            'nom'=>$request->nom,
+            'date_naissance'=>new Carbon($request->date_naissance) ,
+            'prenom'=>$request->prenom,
+            'expduration_id'=>$request->expduration_id,
+            'type'=>$request->type,
+            'expfield'=>$request->expfield,
+            'formation'=>$request->formation,
+        ]);
+        return $associe;
+
     }
 
     /**

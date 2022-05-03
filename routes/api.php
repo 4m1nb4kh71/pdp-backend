@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssocieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -31,4 +32,10 @@ Route::group(['middleware' => ['auth:api']], function () {
     //projets crud
     Route::get('/projets',[ProjetController::class,'index']);
     Route::post('/create_projet',[ProjetController::class,'store']);
+
+
+    //associe filters
+    Route::get('/associe_filters',[AssocieController::class,'filters']);
+    //associe crud
+    Route::post('/create_associe',[AssocieController::class,'store']);
 });

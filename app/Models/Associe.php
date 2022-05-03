@@ -14,7 +14,11 @@ class Associe extends Model
         'prenom',
         'date_naissance',
         'expduration_id',
+        'type',
         'expfield',
         'formation',
     ];
+    public function projet(){
+        return $this->belongsTo(Projet::class,'projet_id'); 
+    }
 }
