@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Projet;
 use App\Http\Requests\StoreProjetRequest;
 use App\Http\Requests\UpdateProjetRequest;
+use App\Http\Resources\ProjetResource;
 use App\Models\Formejuridique;
 use Carbon\Carbon;
 
@@ -53,7 +54,7 @@ class ProjetController extends Controller
             'formejuridique_id'=>$request->formejuridique_id,
             'secteur'=>$request->secteur
         ]);
-        return $projet;
+        return new ProjetResource($projet) ;
     }
 
     /**
