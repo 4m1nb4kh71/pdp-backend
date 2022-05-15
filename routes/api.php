@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AssocieController;
+use App\Http\Controllers\SolutionController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -38,4 +40,27 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/associe_filters',[AssocieController::class,'filters']);
     //associe crud
     Route::post('/create_associe',[AssocieController::class,'store']);
+
+
+     //potentiel filters
+     Route::get('/potentiel_filters',[PotentielController::class,'filters']);
+
+     //potentiel crud
+     Route::get('/potentiels',[PotentielController::class,'index']);
+     Route::post('/create_potentiel',[PotentielController::class,'store']);
+     
+ 
+     //solution filters
+     Route::get('/solution_filters',[SolutionlController::class,'filters']);
+
+     //solutions crud
+     Route::get('/solution',[SolutionController::class,'index']);
+     Route::post('/create_solution',[SolutionController::class,'store']);
+ 
+     
+
+     //solutions crud
+     Route::get('/items',[ItemController::class,'index']);
+     Route::post('/create_items',[ItemController::class,'store']);
 });
+

@@ -18,9 +18,19 @@ class Projet extends Model
         'emplacementnote',
         'secteur',
         'formejuridique_id',
+
+
         
     ];
     public function associes(){
         return $this->hasMany(Associe::class); 
+    }
+
+    public function solutions(){
+        return $this->hasMany(Solution::class); 
+    }
+
+    public function potentiels(){
+        return $this->hasOne(Potentiel::class); 
     }
 }
