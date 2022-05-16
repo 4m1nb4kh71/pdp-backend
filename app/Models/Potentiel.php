@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Potentiel extends Model
 {
     use HasFactory;
+    protected $table='potentiels';
     protected $fillable=[
 
         //dev pot projet
@@ -25,10 +26,25 @@ class Potentiel extends Model
          'decisions_judicieuses',
          'realisation_objectifs',
          'prendre_risques',
-         'porteur_id',
+         'projet_id',
+         'motivation_id',
+         'determination_id',
+         'complementaire_id',
 
         
     ];
+
+    public function motivations(){
+        return $this->belongsTo(Motivation::class,'motivation_id'); 
+    } 
+    
+    public function determinations(){
+        return $this->belongsTo(Determination::class,'determination_id'); 
+    }
+    
+    public function complementaires(){
+        return $this->belongsTo(Complementaire::class,'complementaire_id'); 
+    }
 
     public function projet(){
         return $this->belongsTo(Projet::class,'projet_id'); 

@@ -18,23 +18,30 @@ class PotentielResource extends JsonResource
         return [
             'id' => $this->id,
             //dev pot projet
-            'scalabilité_adaptabilité' => $this->scalabilité_adaptabilité,
-            'attractivité_territoir_emplacement' => $this-> attractivité_territoir_emplacement ,
-            'croissance_marché' => $this-> croissance_marché ,
+            'scalabilite_adaptabilite' => $this->scalabilite_adaptabilite,
+            'attractivite_territoir_emplacement' => $this-> attractivite_territoir_emplacement,
+            'croissance_marche' => $this-> croissance_marche,
             //pot equipe
-            'propre_patron' => $this-> propre_patron  ,
-             'Exercer_passion'=> $this-> Exercer_passion  ,
-             'Améliorer_revenus'=> $this-> Améliorer_revenus  ,
-             'formaliser_activité'=> $this-> formaliser_activité  ,
-             'independent_financièrement'=> $this-> independent_financièrement  ,
-             'défis'=> $this-> défis  ,
+            'propre_patron' => $this-> propre_patron,
+             'Exercer_passion'=> $this-> Exercer_passion,
+             'Ameliorer_revenus'=> $this-> Ameliorer_revenus,
+             'formaliser_activite'=> $this-> formaliser_activite,
+             'independent_financierement'=> $this-> independent_financierement,
+             'defis'=> $this-> defis  ,
             
             //determination de l'entrepreneur
-            'décisions_judicieuses' => $this-> décisions_judicieuses  ,
-            'réalisation_objectifs' => $this-> réalisation_objectifs  ,
-            'prendre_risques' => $this-> prendre_risques  ,
+            'decisions_judicieuses' => $this-> decisions_judicieuses,
+            'realisation_objectifs' => $this-> realisation_objectifs,
+            'prendre_risques' => $this-> prendre_risques,
             
-             'porteur_projet'=> $this-> porteur_projet  ,
+
+             'projet_id'=>$this->projet_id,
+             'motivation_id'=>$this->motivation_id,
+             'determination_id'=>$this->determination_id,
+             'complementaire_id'=>$this->complementaire_id,
+
+             'created_at' => $this->created_at,
+             'updated_at' => $this->updated_at,
 
         ];
     }

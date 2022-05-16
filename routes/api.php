@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\MotivationController;
+use App\Http\Controllers\ComplementaireController;
+use App\Http\Controllers\DeterminationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,12 +50,26 @@ Route::group(['middleware' => ['auth:api']], function () {
 
 
      //potentiel filters
-     Route::get('/potentiel_filters',[PotentielController::class,'filters']);
+     Route::get('/potentiel_filtersA',[PotentielController::class,'filtersA']);
+     Route::get('/potentiel_filtersB',[PotentielController::class,'filtersB']);
+     Route::get('/potentiel_filtersC',[PotentielController::class,'filtersC']);
 
      //potentiel crud
      Route::get('/potentiels',[PotentielController::class,'index']);
      Route::post('/create_potentiel',[PotentielController::class,'store']);
      
+      //motivations crud
+      Route::get('/motivations',[MotivationController::class,'index']);
+      Route::post('/create_motivation',[MotivationController::class,'store']);
+
+      //determinations crud
+      Route::get('/determinations',[DeterminationController::class,'index']);
+      Route::post('/create_determination',[DeterminationController::class,'store']);
+
+      //complementaires crud
+      Route::get('/complementaires',[ComplementaireController::class,'index']);
+      Route::post('/create_complementaire',[ComplementaireController::class,'store']);
+        
  
      //solution filters
      Route::get('/solution_filters1',[SolutionController::class,'filters1']);

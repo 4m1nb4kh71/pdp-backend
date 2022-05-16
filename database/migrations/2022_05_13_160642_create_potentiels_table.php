@@ -17,22 +17,26 @@ return new class extends Migration
             $table->id();
            
                //dev pot projet
-                $table->string('scalabilité_adaptabilité');
-                $table->string('attractivité_territoir_emplacement');
-                $table->string('croissance_marché');
+                $table->string('scalabilite_adaptabilite');
+                $table->string('attractivite_territoir_emplacement');
+                $table->string('croissance_marche');
                 //pot equipe
                 $table->boolean('propre_patron')->default(0);
                 $table->boolean('Exercer_passion')->default(0);
-                $table->boolean('Améliorer_revenus')->default(0);
-                $table->boolean('formaliser_activité')->default(0);
-                $table->boolean('independent_financièrement')->default(0);
-                $table->boolean('défis')->default(0);
+                $table->boolean('Ameliorer_revenus')->default(0);
+                $table->boolean('formaliser_activite')->default(0);
+                $table->boolean('independent_financierement')->default(0);
+                $table->boolean('defis')->default(0);
                 //determination de l'entrepreneur
-                $table->boolean('décisions_judicieuses')->default(0);
-                $table->boolean('réalisation_objectifs')->default(0);
+                $table->boolean('decisions_judicieuses')->default(0);
+                $table->boolean('realisation_objectifs')->default(0);
                 $table->boolean('prendre_risques')->default(0);
 
-                $table->foreignId('porteur_id')->default(1)->constrained('porteurs');
+               // $table->foreignId('porteur_id')->default(1)->constrained('porteurs');
+               
+               $table->foreignId('motivation_id')->constrained('motivations');
+               $table->foreignId('determination_id')->constrained('determinations');
+               $table->foreignId('complementaire_id')->constrained('complementaires');
 
                 $table->foreignId('projet_id')->constrained('projets')->onDelete('cascade');
                     $table->timestamps();
