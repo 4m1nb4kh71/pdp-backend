@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Solution;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
+use App\Http\Resources\ItemResource;
 
 
 class ItemController extends Controller
@@ -44,6 +46,7 @@ class ItemController extends Controller
     {
           //
           $item = Item::create([
+            'solution_id'=>$request->solution_id,
             'type'=>$request->type,
             'description'=>$request->description,
             

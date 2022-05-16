@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('solution_id');
+            
             $table->text('type');
             $table->text('description');
             

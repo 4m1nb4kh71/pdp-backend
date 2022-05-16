@@ -17,8 +17,11 @@ class ItemResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'solution_id' => $this->solution_id,
             'type' => $this->type,
             'description' => $this->description,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
             
         ];
     }

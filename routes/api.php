@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth:api']], function () {
      
  
      //solution filters
-     Route::get('/solution_filters',[SolutionlController::class,'filters']);
+     Route::get('/solution_filters',[SolutionController::class,'filters']);
 
      //solutions crud
      Route::get('/solution',[SolutionController::class,'index']);
@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth:api']], function () {
  
      
 
-     //solutions crud
+     //item crud
      Route::get('/items',[ItemController::class,'index']);
      Route::post('/create_items',[ItemController::class,'store']);
 });
