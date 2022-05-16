@@ -11,18 +11,33 @@ class Solution extends Model
     protected $table='solutions';
     protected $fillable=[
         'projet_id',
+        'faisabilite_id',
+        'originalite_id',
+        'marche_id',
+
         'description_besoin',
-        'faisabilite',
-        'originalite',
-        'marche',
+        
+        
     ];
 
     public function projet(){
         return $this->belongsTo(Projet::class,'projet_id'); 
     }
 
-    public function item(){
-        return $this->hasMany(Item::class); 
+    public function solutionitem(){
+        return $this->hasMany(SolutionItem::class); 
+    }
+    
+    public function faisabilite(){
+        return $this->belongsTo(Faisabilite::class,'faisabilite_id'); 
+    }
+
+    public function originalite(){
+        return $this->belongsTo(Originalite::class,'originalite_id'); 
+    }
+
+    public function marche(){
+        return $this->belongsTo(Marche::class,'marche_id'); 
     }
     
 }

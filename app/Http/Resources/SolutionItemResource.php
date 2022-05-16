@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ItemResource extends JsonResource
+class SolutionItemResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -12,7 +12,7 @@ class ItemResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public static $wrap = 'item';
+    public static $wrap = 'SolutionItem';
     public function toArray($request)
     {
         return [

@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
-            $table->increments('id');
-
-            
-            $table->text('type');
-            $table->text('description');
-            
-            $table->foreign('solution_id') ->references('id')->on('solutions')->onDelete('cascade');
-
+        Schema::create('originalites', function (Blueprint $table) {
+            $table->id();
+            $table->text('description'); 
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('originalites');
     }
 };

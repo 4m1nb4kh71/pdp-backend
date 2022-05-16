@@ -18,10 +18,11 @@ class SolutionResource extends JsonResource
         return [
             'id' => $this->id,
             'projet_id'=>$this->projet_id,
+            'faisabilite_id'=>$this->faisabilite_id,
+            'originalite_id'=>$this->originalite_id,
+            'marche_id'=>$this->marche_id,
             'description_besoin' => $this->description_besoin,
-            'faisabilite' => $this->faisabilite,
-            'originalite' => $this->originalite,
-            'marche' => $this->marche,
+            
            // 'item_id' => $this->item_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

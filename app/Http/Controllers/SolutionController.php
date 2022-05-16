@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Item;
+use App\Models\SolutionItem;
 use App\Models\Solution;
 use App\Models\Projet;
+use App\Models\Faisabilite;
+use App\Models\Originalite;
+use App\Models\Marche;
 use App\Http\Requests\StoreSolutionRequest;
 use App\Http\Requests\UpdateSolutionRequest;
 use App\Http\Resources\SolutionResource;
@@ -19,10 +22,26 @@ class SolutionController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function filters(){
-        $items = Item::all();
-        return $items;
+    public function filters1(){
+        $solutionitems = SolutionItem::all();
+        return $solutionitems;
     }
+
+    public function filters2(){
+        $faisabilites = Faisabilite::all();
+        return $faisabilites;
+    }
+
+    public function filters3(){
+        $originalites = Originalite::all();
+        return $originalites;
+    }
+    
+    public function filters4(){
+        $marches = Marche::all();
+        return $marches;
+    }
+
 
     public function index()
     {
@@ -51,10 +70,11 @@ class SolutionController extends Controller
     {
         $solution = Solution::create([
             'projet_id'=>$request->projet_id,
+            'faisabilite_id'=>$request->faisabilite_id,
+            'originalite_id'=>$request->originalite_id,
+            'marche_id'=>$request->marche_id,
             'description_besoin'=>$request->description_besoin,
-            'faisabilite'=>$request->faisabilite,
-            'originalite'=>$request->originalite,
-            'marche'=>$request->marche,
+            
             'creation_date'=>new Carbon($request->creation_date) ,
            // 'item_id'=>$request->item_id,
         ]);

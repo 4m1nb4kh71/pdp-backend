@@ -14,15 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('solutions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
    
             $table->longText('description_besoin');
-            $table->text('faisabilite');
-            $table->text('originalite');
-            $table->text('marche');
+            
             $table->date('creation_date')->default(now());
-
+          //  $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
             $table->foreignId('projet_id')->constrained('projets');
+            $table->foreignId('faisabilite_id')->constrained('faisabilites');
+            $table->foreignId('originalite_id')->constrained('originalites');
+            $table->foreignId('marche_id')->constrained('marches');
            
             $table->timestamps();
         });

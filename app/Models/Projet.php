@@ -19,6 +19,8 @@ class Projet extends Model
         'emplacementnote',
         'secteur',
         'formejuridique_id',
+        'projet_id',
+
 
 
         

@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class Originalite extends Model
 {
     use HasFactory;
-    protected $fillable=[
-        'solution_id',
-        'type',
+    protected $fillable = [
         'description',
     ];
+
     public function solution(){
-        return $this->belongsTo(Solution::class,'solution_id'); 
+        return $this->hasMany(Solution::class); 
     }
 }
