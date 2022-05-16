@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Solution;
+use App\Models\Projet;
 use App\Http\Requests\StoreSolutionRequest;
 use App\Http\Requests\UpdateSolutionRequest;
+use App\Http\Resources\SolutionResource;
+use Carbon\Carbon;
+
+
 
 class SolutionController extends Controller
 {
@@ -45,13 +50,15 @@ class SolutionController extends Controller
     public function store(StoreSolutionRequest $request)
     {
         $solution = Solution::create([
+            'projet_id'=>$request->projet_id,
             'description_besoin'=>$request->description_besoin,
             'faisabilite'=>$request->faisabilite,
             'originalite'=>$request->originalite,
             'marche'=>$request->marche,
-            'item_id'=>$request->item_id,
+            'creation_date'=>new Carbon($request->creation_date) ,
+           // 'item_id'=>$request->item_id,
         ]);
-        return SolutionResource($solution);
+        return new SolutionResource($solution);
      
     }
 

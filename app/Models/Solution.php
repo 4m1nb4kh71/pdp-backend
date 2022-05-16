@@ -11,7 +11,6 @@ class Solution extends Model
     protected $table='solutions';
     protected $fillable=[
         'projet_id',
-        
         'description_besoin',
         'faisabilite',
         'originalite',

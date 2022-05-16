@@ -15,11 +15,15 @@ return new class extends Migration
     {
         Schema::create('solutions', function (Blueprint $table) {
             $table->increments('id');
+   
             $table->longText('description_besoin');
             $table->text('faisabilite');
             $table->text('originalite');
             $table->text('marche');
+            $table->date('creation_date')->default(now());
 
+            $table->foreignId('projet_id')->constrained('projets');
+           
             $table->timestamps();
         });
        
