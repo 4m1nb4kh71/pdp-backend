@@ -36,4 +36,8 @@ class Projet extends Model
     public function potentiels(){
         return $this->hasOne(Potentiel::class); 
     }
+
+    public function viabilite(){
+        return $this->hasOne(Viabilite::class); 
+    }
 }

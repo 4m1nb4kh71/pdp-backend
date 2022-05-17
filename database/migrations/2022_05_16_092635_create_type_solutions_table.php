@@ -13,18 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('solution_items', function (Blueprint $table) {
+        Schema::create('type_solutions', function (Blueprint $table) {
             $table->id();
-
-            
-            $table->text('description');
-            $table->date('creation_date')->default(now());
-           $table->foreignId('solution_id')->constrained('solutions');
-           $table->foreignId('type_solution_id')->constrained('type_solutions');
-
+            $table->text('type');
             $table->timestamps();
         });
-       
     }
 
     /**
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solution_items');
+        Schema::dropIfExists('type_solutions');
     }
 };

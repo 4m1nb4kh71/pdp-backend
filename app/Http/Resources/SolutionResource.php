@@ -18,7 +18,7 @@ class SolutionResource extends JsonResource
         return [
             'id' => $this->id,
             'projet_id'=>$this->projet_id,
-            'faisabilite_id'=>$this->faisabilite_id,
+            'client_id'=>$this->faisabilite_id,
             'originalite_id'=>$this->originalite_id,
             'marche_id'=>$this->marche_id,
             'description_besoin' => $this->description_besoin,

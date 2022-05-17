@@ -43,7 +43,8 @@ class SolutionItemController extends Controller
               //
               $solutionitem = SolutionItem::create([
                 'solution_id'=>$request->solution_id,
-                'type'=>$request->type,
+                'type_solution_id'=>$request->type_solution_id,
+               
                 'description'=>$request->description,
                 
                 

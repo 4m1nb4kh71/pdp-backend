@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Faisabilite;
+use File;
 
 class FaisabiliteSeeder extends Seeder
 {
@@ -21,7 +23,7 @@ class FaisabiliteSeeder extends Seeder
         $json = File::get('database/data/faisabilites.json');
         $content = json_decode($json);
         foreach ($content as $key => $value) {
-            Expduration::Create([
+            Faisabilite::Create([
                 'description' => $value->description,
 
             ]);

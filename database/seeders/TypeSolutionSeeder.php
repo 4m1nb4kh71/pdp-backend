@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Expduration;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\TypeSolution;
 
 use File;
-class ExpdurationSeeder extends Seeder
+
+class TypeSolutionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,15 +18,14 @@ class ExpdurationSeeder extends Seeder
     public function run()
     {
         //
-        Expduration::all()->each(function ($item) {
+        TypeSolution::all()->each(function ($item) {
             $item->delete();
         });
-        $json = File::get('database/data/expdurations.json');
+        $json = File::get('database/data/type_solutions.json');
         $content = json_decode($json);
         foreach ($content as $key => $value) {
-            Expduration::Create([
-                'nom' => $value->nom,
-
+            TypeSolution::Create([
+                'type' => $value->type,
             ]);
         }
     }
