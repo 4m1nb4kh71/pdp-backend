@@ -14,6 +14,13 @@ use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\ComplementaireController;
 use App\Http\Controllers\DeterminationController;
+use App\Http\Controllers\ViabiliteController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\EchelleController;
+use App\Http\Controllers\EstimationController;
+use App\Http\Controllers\FournisseurController;
+use App\Http\Controllers\ConcurrentController;
+use App\Http\Controllers\ImplantationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +88,9 @@ Route::group(['middleware' => ['auth:api']], function () {
      Route::get('/solution',[SolutionController::class,'index']);
      Route::post('/create_solution',[SolutionController::class,'store']);
  
+     //solutions Items crud
+     Route::get('/solution_item',[SolutionItemController::class,'index']);
+     Route::post('/create_solution_item',[SolutionItemController::class,'store']);
      
 
      //faisabilites crud
@@ -95,6 +105,37 @@ Route::group(['middleware' => ['auth:api']], function () {
      Route::get('/marches',[MarcheController::class,'index']);
      Route::post('/create_marche',[MarcheController::class,'store']);
 
+       //marches crud
+     Route::get('/marches',[MarcheController::class,'index']);
+     Route::post('/create_marche',[MarcheController::class,'store']);
+
+     //viabilite  crud
+     Route::get('/viabilites',[ViabiliteController::class,'index']);
+     Route::post('/viabilite_create',[ViabiliteController::class,'store']);
+
+     //client  crud
+     Route::get('/clients',[ClientController::class,'index']);
+     Route::post('/client_create',[ClientController::class,'store']);
+
+       //estimation crud
+       Route::get('/estimations',[EstimationController::class,'index']);
+       Route::post('/create_estimation',[EstimationController::class,'store']);
+
+         //echelle crud
+     Route::get('/echelles',[EchelleController::class,'index']);
+     Route::post('/create_echelle',[EchelleController::class,'store']);
+
+      //fournisseur crud
+      Route::get('/fournisseurs',[FournisseurController::class,'index']);
+      Route::post('/create_fournisseur',[FournisseurController::class,'store']);
+ 
+       //concurrent crud
+       Route::get('/concurrents',[ConcurrentController::class,'index']);
+       Route::post('/create_concurrent',[ConcurrentController::class,'store']);
+     
+       //implantation crud
+       Route::get('/implantations',[ImplantationController::class,'index']);
+       Route::post('/create_implantation',[ImplantationController::class,'store']);
      
 });
 
