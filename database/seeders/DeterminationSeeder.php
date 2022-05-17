@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Determination;
+
 use File;
 
 class DeterminationSeeder extends Seeder
@@ -19,7 +21,7 @@ class DeterminationSeeder extends Seeder
           Determination::all()->each(function ($item) {
             $item->delete();
         });
-        $json = File::get('database/data/determinations.json');
+        $json = File::get('database/data/deteminations.json');
         $content = json_decode($json);
         foreach ($content as $key => $value) {
             Determination::Create([

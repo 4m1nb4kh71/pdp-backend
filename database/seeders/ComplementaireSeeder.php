@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Complementaire;
+use File;
+
 
 class ComplementaireSeeder extends Seeder
 {
@@ -21,7 +24,7 @@ class ComplementaireSeeder extends Seeder
         $json = File::get('database/data/complementaires.json');
         $content = json_decode($json);
         foreach ($content as $key => $value) {
-            Determination::Create([
+            Complementaire::Create([
                 'etat' => $value->etat,
 
             ]);
