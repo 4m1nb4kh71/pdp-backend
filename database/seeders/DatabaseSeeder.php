@@ -19,7 +19,21 @@ class DatabaseSeeder extends Seeder
         $this->call([
           
             FormejuridiqueSeeder::class,
-            ExpdurationSeeder::class
+            ExpdurationSeeder::class,
+            OriginaliteSeeder::class,
+            FaisabiliteSeeder::class,
+            MarcheSeeder::class,
+            TypeSolutionSeeder::class,
+           DeterminationSeeder::class,
+            MotivationSeeder::class,
+           ComplementaireSeeder::class,
+           EstimationSeeder::class,
+           EchelleSeeder::class,
+           EstimationFournisseurSeeder::class,
+           EstimationConcurrentSeeder::class,
+           EstimationClientSeeder::class,
+           ModeOccupationSeeder::class,
+
         ]);
     }
 }

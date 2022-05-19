@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
+
             $table->longText('title')->default('projet name');
             $table->longText('description')->default('projet description');
             $table->date('creation_date')->default(now());
@@ -24,7 +25,10 @@ return new class extends Migration
             $table->string('croissancenote')->default('0');
             $table->string('emplacementnote')->default('0');
             $table->text('secteur')->default('secteur');
+
            // $table->foreign('secteur_id')->references('id')->on('secteurs');
+        
+
             $table->foreignId('formejuridique_id')->default(1)->constrained('formejuridiques');
            
             $table->timestamps();

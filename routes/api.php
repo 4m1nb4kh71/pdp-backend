@@ -1,10 +1,33 @@
 <?php
 
 use App\Http\Controllers\AssocieController;
+use App\Http\Controllers\SolutionController;
+use App\Http\Controllers\SolutionItemController;
+use App\Http\Controllers\FaisabiliteController;
+use App\Http\Controllers\OriginaliteController;
+use App\Http\Controllers\MarcheController;
+use App\Http\Controllers\PotentielController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\MotivationController;
+use App\Http\Controllers\ComplementaireController;
+use App\Http\Controllers\DeterminationController;
+use App\Http\Controllers\ViabiliteController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\EchelleController;
+use App\Http\Controllers\EstimationController;
+use App\Http\Controllers\FournisseurController;
+use App\Http\Controllers\ConcurrentController;
+use App\Http\Controllers\ImplantationController;
+use App\Http\Controllers\EstimationClientController;
+use App\Http\Controllers\EstimationConcurrentController;
+use App\Http\Controllers\EstimationFournisseurController;
+use App\Http\Controllers\InfoProjetController;
+use App\Http\Controllers\PlanFinancementController;
+use App\Http\Controllers\ProgrammeInvestissementController;
+use App\Http\Controllers\ChiffreAffaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +61,116 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/associe_filters',[AssocieController::class,'filters']);
     //associe crud
     Route::post('/create_associe',[AssocieController::class,'store']);
+
+
+     //potentiel filters
+     Route::get('/potentiel_filtersA',[PotentielController::class,'filtersA']);
+     Route::get('/potentiel_filtersB',[PotentielController::class,'filtersB']);
+     Route::get('/potentiel_filtersC',[PotentielController::class,'filtersC']);
+
+     //potentiel crud
+     Route::get('/potentiels',[PotentielController::class,'index']);
+     Route::post('/create_potentiel',[PotentielController::class,'store']);
+     
+      //motivations crud
+      Route::get('/motivations',[MotivationController::class,'index']);
+      Route::post('/create_motivation',[MotivationController::class,'store']);
+
+      //determinations crud
+      Route::get('/determinations',[DeterminationController::class,'index']);
+      Route::post('/create_determination',[DeterminationController::class,'store']);
+
+      //complementaires crud
+      Route::get('/complementaires',[ComplementaireController::class,'index']);
+      Route::post('/create_complementaire',[ComplementaireController::class,'store']);
+        
+ 
+     //solution filters
+     Route::get('/solution_filters1',[SolutionController::class,'filters1']);
+     Route::get('/solution_filters2',[SolutionController::class,'filters2']);
+     Route::get('/solution_filters3',[SolutionController::class,'filters3']);
+     Route::get('/solution_filters4',[SolutionController::class,'filters4']);
+
+     //solutions crud
+     Route::get('/solution',[SolutionController::class,'index']);
+     Route::post('/create_solution',[SolutionController::class,'store']);
+ 
+     //solutions Items crud
+     Route::get('/solution_item',[SolutionItemController::class,'index']);
+     Route::post('/create_solution_item',[SolutionItemController::class,'store']);
+     
+
+     //faisabilites crud
+     Route::get('/faisabilites',[FaisabiliteController::class,'index']);
+     Route::post('/create_faisabilite',[FaisabiliteController::class,'store']);
+
+      //originalites crud
+      Route::get('/originalites',[OriginaliteController::class,'index']);
+      Route::post('/create_originalite',[OriginaliteController::class,'store']);
+
+       //marches crud
+     Route::get('/marches',[MarcheController::class,'index']);
+     Route::post('/create_marche',[MarcheController::class,'store']);
+
+       //marches crud
+     Route::get('/marches',[MarcheController::class,'index']);
+     Route::post('/create_marche',[MarcheController::class,'store']);
+
+     //viabilite  crud
+     Route::get('/viabilites',[ViabiliteController::class,'index']);
+     Route::post('/viabilite_create',[ViabiliteController::class,'store']);
+
+     //client  crud
+     Route::get('/clients',[ClientController::class,'index']);
+     Route::post('/client_create',[ClientController::class,'store']);
+
+       //estimation crud
+       Route::get('/estimations',[EstimationController::class,'index']);
+       Route::post('/create_estimation',[EstimationController::class,'store']);
+
+         //echelle crud
+     Route::get('/echelles',[EchelleController::class,'index']);
+     Route::post('/create_echelle',[EchelleController::class,'store']);
+
+      //fournisseur crud
+      Route::get('/fournisseurs',[FournisseurController::class,'index']);
+      Route::post('/create_fournisseur',[FournisseurController::class,'store']);
+ 
+       //concurrent crud
+       Route::get('/concurrents',[ConcurrentController::class,'index']);
+       Route::post('/create_concurrent',[ConcurrentController::class,'store']);
+     
+       //implantation crud
+       Route::get('/implantations',[ImplantationController::class,'index']);
+       Route::post('/create_implantation',[ImplantationController::class,'store']);
+
+        //EstimationClient crud
+        Route::get('/estimationclients',[EstimationClientController::class,'index']);
+        Route::post('/create_estimationclient',[EstimationClientController::class,'store']);
+
+         //EstimationConcurrent crud
+       Route::get('/estimationconcurrents',[EstimationConcurrentController::class,'index']);
+       Route::post('/create_estimationconcurrent',[EstimationConcurrentController::class,'store']);
+
+        //EstimationFournisseur crud
+        Route::get('/estimationfournisseurs',[EstimationFournisseurController::class,'index']);
+        Route::post('/create_estimationfournisseur',[EstimationFournisseurController::class,'store']);
+     
+         //InfoProjet crud
+         Route::get('/infoprojets',[InfoProjetController::class,'index']);
+         Route::post('/create_infoprojet',[InfoProjetController::class,'store']);
+
+
+          //PlanFinancement crud
+          Route::get('/planfinancements',[PlanFinancementController::class,'index']);
+          Route::post('/create_planfinancement',[PlanFinancementController::class,'store']);
+
+           //programme d'investissement crud
+           Route::get('/programmeinvestissements',[ProgrammeInvestissementController::class,'index']);
+           Route::post('/create_programmeinvestissement',[ProgrammeInvestissementController::class,'store']);
+
+           //chiffreaffaire crud
+           Route::get('/chiffreaffaires',[ChiffreAffaireController::class,'index']);
+           Route::post('/create_chiffreaffaires',[ChiffreAffaireController::class,'store']);
 });
+

@@ -1,0 +1,8 @@
+[
+    { "nom": "National" },
+    { "nom": "International" },
+    { "nom": "Régional" },
+    { "nom": "Provincial" },
+    { "nom": "Local" }
+    
+]

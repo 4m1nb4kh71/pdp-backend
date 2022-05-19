@@ -52,8 +52,10 @@ class ProjetController extends Controller
             'creation_date'=>new Carbon($request->creation_date) ,
             'id_forsa'=>$request->id_forsa,
             'formejuridique_id'=>$request->formejuridique_id,
-            'secteur'=>$request->secteur
-        ]);
+            'secteur'=>$request->secteur,
+            
+                
+            ]);
         return new ProjetResource($projet) ;
     }
 

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Expduration;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
 use File;
 class ExpdurationSeeder extends Seeder
 {
