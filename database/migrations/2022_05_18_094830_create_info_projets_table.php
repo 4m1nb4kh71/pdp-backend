@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('implantations', function (Blueprint $table) {
+        Schema::create('info_projets', function (Blueprint $table) {
             $table->id();
+            $table->text('programme_investissement');
+            $table->text('ressource_financement');
+            $table->text('processus_producion_fabrication');
+            $table->foreignId('viabilite_id')->constrained('viabilites');
 
-            $table->foreignId('modeoccupation_id')->constrained('mode_occupations');
-            $table->text('adresse');
-            $table->text('montant_loyer');
-            $table->date('creation_date')->default(now());
+            
+            
 
-           $table->foreignId('viabilite_id')->constrained('viabilites');
-
-
+          
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('implantations');
+        Schema::dropIfExists('info_projets');
     }
 };

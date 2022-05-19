@@ -29,6 +29,10 @@ class DatabaseSeeder extends Seeder
            ComplementaireSeeder::class,
            EstimationSeeder::class,
            EchelleSeeder::class,
+           EstimationFournisseurSeeder::class,
+           EstimationConcurrentSeeder::class,
+           EstimationClientSeeder::class,
+           ModeOccupationSeeder::class,
 
         ]);
     }

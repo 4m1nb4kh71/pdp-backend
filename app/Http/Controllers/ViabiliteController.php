@@ -45,6 +45,10 @@ class ViabiliteController extends Controller
         //
         $viabilite = Viabilite::create([
             'projet_id'=>$request->projet_id,
+            'estimationclient_id'=>$request->estimationclient_id,
+            'estimationconcurrent_id'=>$request->estimationconcurrent_id,
+            'estimationfournisseur_id'=>$request->estimationfournisseur_id,
+            'estimation_id'=>$request->estimation_id,
             
             'creation_date'=>new Carbon($request->creation_date) ,
            // 'item_id'=>$request->item_id,

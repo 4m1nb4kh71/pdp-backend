@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ImplantationResource extends JsonResource
+class InfoProjetResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -12,17 +12,17 @@ class ImplantationResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public static $wrap = 'implantation';
+    public static $wrap = 'marche';
     public function toArray($request)
     {
         return [
             'id' => $this->id,
             'viabilite_id'=>$this->viabilite_id,
+            'processus_producion_fabrication' => $this->processus_producion_fabrication,
+            'programme_investissement' => $this->programme_investissement,
+            'ressource_financement' => $this->ressource_financement,
            
-            'adresse'=>$this->adresse,
-            'modeoccupation_id'=>$this->modeoccupation_id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            
         ];
     }
 }

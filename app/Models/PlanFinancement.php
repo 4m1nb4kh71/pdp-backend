@@ -5,23 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Implantation extends Model
+class PlanFinancement extends Model
 {
     use HasFactory;
-    protected $fillable = [
-       
+    protected $table='plan_financements';
+    protected $fillable=[
         'viabilite_id',
-        'modeoccupation_id',
-        'adresse',
-        'montant_loyer',
+        'nom',    
+        'prix', 
+       
     ];
-    
-    
     public function viabilite(){
         return $this->belongsTo(Viabilite::class,'viabilite_id'); 
     }
-
-    public function modeoccupation(){
-        return $this->belongsTo(ModeOccupation::class,'modeoccupation_id'); 
-    }
+   
 }

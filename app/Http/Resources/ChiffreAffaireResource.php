@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ViabiliteResource extends JsonResource
+class ChiffreAffaireResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -12,16 +12,19 @@ class ViabiliteResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public static $wrap = 'viabilite';
+    public static $wrap = 'chiffreaffaire';
     public function toArray($request)
     {
         return [
             'id' => $this->id,
-            'projet_id'=>$this->projet_id,
-            'estimationfournisseur_id'=>$this->estimationfournisseur_id,
-            'estimationconcurrent_id'=>$this->estimationconcurrent_id,
-            'estimationclient_id'=>$this->estimationclient_id,
-            'estimation_id'=>$this->estimation_id,
+            'viabilite_id'=>$this->viabilite_id,
+            
+            'produit_service'=>$this->produit_service,
+            'prix_unitaire'=>$this->prix_unitaire,
+            'quantite_vendu'=>$this->quantite_vendu,
+            'total'=>$this->total,
+            'taux_evaluation_activite'=>$this->taux_evaluation_activite,
+            'total_general'=>$this->total_general,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

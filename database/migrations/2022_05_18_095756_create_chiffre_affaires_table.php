@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('implantations', function (Blueprint $table) {
+        Schema::create('chiffre_affaires', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('modeoccupation_id')->constrained('mode_occupations');
-            $table->text('adresse');
-            $table->text('montant_loyer');
+            $table->text('produit_service');
+            $table->text('prix_unitaire');
+            $table->text('quantite_vendu');
+            $table->text('total');
+            $table->text('total_general');
+            $table->text('taux_evaluation_activite');
             $table->date('creation_date')->default(now());
-
            $table->foreignId('viabilite_id')->constrained('viabilites');
 
 
@@ -35,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('implantations');
+        Schema::dropIfExists('chiffre_affaires');
     }
 };

@@ -21,6 +21,13 @@ use App\Http\Controllers\EstimationController;
 use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\ConcurrentController;
 use App\Http\Controllers\ImplantationController;
+use App\Http\Controllers\EstimationClientController;
+use App\Http\Controllers\EstimationConcurrentController;
+use App\Http\Controllers\EstimationFournisseurController;
+use App\Http\Controllers\InfoProjetController;
+use App\Http\Controllers\PlanFinancementController;
+use App\Http\Controllers\ProgrammeInvestissementController;
+use App\Http\Controllers\ChiffreAffaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -136,6 +143,34 @@ Route::group(['middleware' => ['auth:api']], function () {
        //implantation crud
        Route::get('/implantations',[ImplantationController::class,'index']);
        Route::post('/create_implantation',[ImplantationController::class,'store']);
+
+        //EstimationClient crud
+        Route::get('/estimationclients',[EstimationClientController::class,'index']);
+        Route::post('/create_estimationclient',[EstimationClientController::class,'store']);
+
+         //EstimationConcurrent crud
+       Route::get('/estimationconcurrents',[EstimationConcurrentController::class,'index']);
+       Route::post('/create_estimationconcurrent',[EstimationConcurrentController::class,'store']);
+
+        //EstimationFournisseur crud
+        Route::get('/estimationfournisseurs',[EstimationFournisseurController::class,'index']);
+        Route::post('/create_estimationfournisseur',[EstimationFournisseurController::class,'store']);
      
+         //InfoProjet crud
+         Route::get('/infoprojets',[InfoProjetController::class,'index']);
+         Route::post('/create_infoprojet',[InfoProjetController::class,'store']);
+
+
+          //PlanFinancement crud
+          Route::get('/planfinancements',[PlanFinancementController::class,'index']);
+          Route::post('/create_planfinancement',[PlanFinancementController::class,'store']);
+
+           //programme d'investissement crud
+           Route::get('/programmeinvestissements',[ProgrammeInvestissementController::class,'index']);
+           Route::post('/create_programmeinvestissement',[ProgrammeInvestissementController::class,'store']);
+
+           //chiffreaffaire crud
+           Route::get('/chiffreaffaires',[ChiffreAffaireController::class,'index']);
+           Route::post('/create_chiffreaffaires',[ChiffreAffaireController::class,'store']);
 });
 

@@ -43,7 +43,9 @@ class ImplantationController extends Controller
         $implantation = Implantation::create([
             'viabilite_id'=>$request->viabilite_id,
          
-            'nom'=>$request->nom,
+            'modeoccupation_id'=>$request->modeoccupation_id,
+            'adresse'=>$request->adresse,
+            'montant_loyer'=>$request->montant_loyer,
       
             ]);
         return new ImplantationResource($implantation);
