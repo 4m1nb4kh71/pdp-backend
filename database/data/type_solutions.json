@@ -1,6 +1,6 @@
 [
-    { "type": "produit" },
-    { "type": "service" }
+    { "nom": "produit" },
+    { "nom": "service" }
     
   
 ]

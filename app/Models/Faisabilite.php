@@ -9,7 +9,7 @@ class Faisabilite extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'description',
+        'nom',
     ];
 
     

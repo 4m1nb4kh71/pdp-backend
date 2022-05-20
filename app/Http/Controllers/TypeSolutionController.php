@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TypeSolution;
 use App\Http\Requests\StoreTypeSolutionRequest;
 use App\Http\Requests\UpdateTypeSolutionRequest;
+use App\Http\Resources\TypeSolutionResource;
 
 class TypeSolutionController extends Controller
 {

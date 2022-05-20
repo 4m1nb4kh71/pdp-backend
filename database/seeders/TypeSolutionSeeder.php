@@ -25,7 +25,7 @@ class TypeSolutionSeeder extends Seeder
         $content = json_decode($json);
         foreach ($content as $key => $value) {
             TypeSolution::Create([
-                'type' => $value->type,
+                'nom' => $value->nom,
             ]);
         }
     }

@@ -1,6 +1,6 @@
 [
-    { "description": "Existant non saturé" },
-    { "description": "Existant et saturé" },
-    { "description": "Porteur" }
+    { "nom": "Existant non saturé" },
+    { "nom": "Existant et saturé" },
+    { "nom": "Porteur" }
   
 ]

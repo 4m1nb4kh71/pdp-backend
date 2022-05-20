@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('originalites', function (Blueprint $table) {
             $table->id();
-            $table->text('description'); 
+            $table->text('nom'); 
             $table->timestamps();
         });
     }

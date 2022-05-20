@@ -10,6 +10,7 @@ use App\Models\Marche;
 use App\Http\Requests\StoreSolutionRequest;
 use App\Http\Requests\UpdateSolutionRequest;
 use App\Http\Resources\SolutionResource;
+use App\Models\TypeSolution;
 use Carbon\Carbon;
 
 
@@ -41,8 +42,23 @@ class SolutionController extends Controller
         $marches = Marche::all();
         return $marches;
     }
+    public function type_solution(){
+        $type = TypeSolution::all();
+        return $type;
+    }
 
-
+    public function filters(){
+        $realisme = $this->filters2();
+        $originalite = $this->filters3();
+        $marche = $this->filters4();
+        $type = $this->type_solution();
+        return [
+            'realisme_filters'=>$realisme,
+            'originalite_filters'=>$originalite,
+            'marche_filters'=>$marche,
+            'type_solution'=>$type
+        ];
+    }
     public function index()
     {
         //

@@ -7,6 +7,7 @@ use App\Models\Projet;
 use App\Http\Requests\StorePotentielRequest;
 use App\Http\Requests\UpdatePotentielRequest;
 use App\Http\Resources\PotentielResource;
+use App\Models\Motivation;
 use Carbon\Carbon;
 
 class PotentielController extends Controller

@@ -51,7 +51,8 @@ Route::post('login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:api']], function () {
     //project filters
     Route::get('/projet_filters',[ProjetController::class,'filters']);
-
+    //solution filters 
+    Route::get('/solution_filters',[SolutionController::class,'filters']);
     //projets crud
     Route::get('/projets',[ProjetController::class,'index']);
     Route::post('/create_projet',[ProjetController::class,'store']);

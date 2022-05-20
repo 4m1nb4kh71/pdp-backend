@@ -24,7 +24,7 @@ class FaisabiliteSeeder extends Seeder
         $content = json_decode($json);
         foreach ($content as $key => $value) {
             Faisabilite::Create([
-                'description' => $value->description,
+                'nom' => $value->nom,
 
             ]);
         }

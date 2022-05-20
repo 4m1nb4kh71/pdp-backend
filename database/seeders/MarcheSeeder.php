@@ -23,7 +23,7 @@ class MarcheSeeder extends Seeder
         $content = json_decode($json);
         foreach ($content as $key => $value) {
             Marche::Create([
-                'description' => $value->description,
+                'nom' => $value->nom,
             ]);
         }
     }

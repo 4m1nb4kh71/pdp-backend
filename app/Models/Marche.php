@@ -10,7 +10,7 @@ class Marche extends Model
     use HasFactory;
     protected $fillable = [
         
-        'description',
+        'nom',
     ];
 
     public function solution(){

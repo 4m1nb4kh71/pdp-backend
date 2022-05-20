@@ -11,7 +11,7 @@ class TypeSolution extends Model
 
     protected $table='type_solutions';
     protected $fillable=[
-        'type',
+        'nom',
     ];
     public function solutionitem(){
         return $this->hasMany(SolutionItem::class); 
