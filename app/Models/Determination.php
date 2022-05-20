@@ -11,7 +11,7 @@ class Determination extends Model
     use HasFactory;
     protected $fillable=[
        
-        'etat',
+        'nom',
     ];
 
     public function potentiel(){

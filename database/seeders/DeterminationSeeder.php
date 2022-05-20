@@ -25,7 +25,7 @@ class DeterminationSeeder extends Seeder
         $content = json_decode($json);
         foreach ($content as $key => $value) {
             Determination::Create([
-                'etat' => $value->etat,
+                'nom' => $value->nom,
 
             ]);
         }

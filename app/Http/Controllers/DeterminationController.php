@@ -42,7 +42,7 @@ class DeterminationController extends Controller
         //
         $determination = Determination::create([
             // 'potentiel_id'=>$request->potentiel_id,
-             'etat'=>$request->etat,
+             'nom'=>$request->nom,
             
              ]);
          return new DeterminationResource($determination);

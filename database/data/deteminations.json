@@ -1,6 +1,6 @@
 [
-    { "etat": "Moyennement déterminé" },
-    { "etat": "Pas déterminé" },
-    { "etat": "Hautement déterminé" }
+    { "nom": "Moyennement déterminé" },
+    { "nom": "Pas déterminé" },
+    { "nom": "Hautement déterminé" }
     
 ]

@@ -18,7 +18,7 @@ class DeterminationResource extends JsonResource
         return [
             'id' => $this->id,
            
-            'etat' => $this->etat,
+            'nom' => $this->nom,
            
             
         ];

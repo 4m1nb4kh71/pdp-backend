@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('determinations', function (Blueprint $table) {
            
                 $table->id();
-                $table->text('etat'); 
+                $table->text('nom'); 
                 $table->timestamps();
 
         });

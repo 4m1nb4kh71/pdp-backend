@@ -15,7 +15,7 @@ class ComplementaireController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         //
                 $complementaires = Complementaire::all();
                 return $complementaires;
