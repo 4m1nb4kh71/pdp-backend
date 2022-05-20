@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             TypeSolutionSeeder::class,
            DeterminationSeeder::class,
             MotivationSeeder::class,
+            NoteSeeder::class,
            ComplementaireSeeder::class,
            EstimationSeeder::class,
            EchelleSeeder::class,

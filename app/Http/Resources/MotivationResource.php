@@ -18,7 +18,7 @@ class MotivationResource extends JsonResource
         return [
             'id' => $this->id,
           //  'potentiel_id' => $this->potentiel_id,
-            'etat' => $this->etat,
+            'nom' => $this->nom,
            
             
         ];

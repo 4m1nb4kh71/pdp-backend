@@ -43,7 +43,7 @@ class NoteController extends Controller
         //
         $note = Note::create([
            // 'potentiel_id'=>$request->potentiel_id,
-            'value'=>$request->value,
+            'nom'=>$request->nom,
            
             ]);
         return new NoteResource($note);

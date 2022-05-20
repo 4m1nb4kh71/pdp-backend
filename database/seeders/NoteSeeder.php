@@ -18,15 +18,17 @@ class NoteSeeder extends Seeder
     public function run()
     {
         //
-        Note::all()->each(function ($item) {
-            $item->delete();
-        });
-        $json = File::get('database/data/notes.json');
-        $content = json_decode($json);
-        foreach ($content as $key => $value) {
-            Note::Create([
-                'value' => $value->value,
-            ]);
-        }
-    }
+        
+            Note::all()->each(function ($item) {
+                $item->delete();
+            });
+            $json = File::get('database/data/notes.json');
+            $content = json_decode($json);
+            foreach ($content as $key => $value) {
+                Note::Create([
+                    'nom' => $value->nom,
+                ]);
+            }
+        
+}
 }

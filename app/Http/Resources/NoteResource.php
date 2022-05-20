@@ -17,7 +17,7 @@ class NoteResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'value' => $this->value,
+            'nom' => $this->nom,
         ];
     }
 }
