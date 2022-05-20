@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('complementaires', function (Blueprint $table) {
             $table->id();
-            $table->text('etat'); 
+            $table->text('nom'); 
             $table->timestamps();
             
         });

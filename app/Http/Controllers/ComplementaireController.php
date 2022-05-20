@@ -42,7 +42,7 @@ class ComplementaireController extends Controller
     {
         //
         $complementaire = Complementaire::create([
-            'etat'=>$request->etat,
+            'nom'=>$request->nom,
            
             ]);
         return new ComplementaireResource($complementaire);

@@ -25,7 +25,7 @@ class ComplementaireSeeder extends Seeder
         $content = json_decode($json);
         foreach ($content as $key => $value) {
             Complementaire::Create([
-                'etat' => $value->etat,
+                'nom' => $value->nom,
 
             ]);
         }
