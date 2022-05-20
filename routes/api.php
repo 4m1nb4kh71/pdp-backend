@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/projet_filters',[ProjetController::class,'filters']);
     //solution filters 
     Route::get('/solution_filters',[SolutionController::class,'filters']);
+    //Potentiel filters
+    Route::get('/potentiel_filters',[PotentielController::class,'filters']);
     //projets crud
     Route::get('/projets',[ProjetController::class,'index']);
     Route::post('/create_projet',[ProjetController::class,'store']);
@@ -174,4 +176,3 @@ Route::group(['middleware' => ['auth:api']], function () {
            Route::get('/chiffreaffaires',[ChiffreAffaireController::class,'index']);
            Route::post('/create_chiffreaffaires',[ChiffreAffaireController::class,'store']);
 });
-
