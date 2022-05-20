@@ -1,6 +1,6 @@
 [
-    { "etat": "Pas motivé" },
-    { "etat": "Moyennement motivé" },
-    { "etat": "Hautement motivé" }
+    { "nom": "Pas motivé" },
+    { "nom": "Moyennement motivé" },
+    { "nom": "Hautement motivé" }
     
 ]

@@ -24,7 +24,7 @@ class MotivationSeeder extends Seeder
         $content = json_decode($json);
         foreach ($content as $key => $value) {
             Motivation::Create([
-                'etat' => $value->etat,
+                'nom' => $value->nom,
             ]);
         }
     }

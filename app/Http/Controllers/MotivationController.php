@@ -43,7 +43,7 @@ class MotivationController extends Controller
         //
         $motivation = Motivation::create([
            // 'potentiel_id'=>$request->potentiel_id,
-            'etat'=>$request->etat,
+            'nom'=>$request->etat,
            
             ]);
         return new MotivationResource($motivation);
