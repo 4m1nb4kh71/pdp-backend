@@ -7,7 +7,10 @@ use App\Models\Projet;
 use App\Http\Requests\StorePotentielRequest;
 use App\Http\Requests\UpdatePotentielRequest;
 use App\Http\Resources\PotentielResource;
+use App\Models\Complementaire;
+use App\Models\Determination;
 use App\Models\Motivation;
+use App\Models\Note;
 use Carbon\Carbon;
 
 class PotentielController extends Controller
@@ -33,7 +36,23 @@ class PotentielController extends Controller
         $complementaire = Complementaire::all();
         return $complementaire;
     }
-    
+    public function filtersN(){
+        $notes = Note::all();
+        return $notes;
+    }
+    public function filters(){
+        $motivation = $this->filtersA();
+        $determination = $this->filtersB();
+        $complementaire = $this->filtersC();
+        $notes=$this->filtersN();
+   
+        return [
+            'motivation_filters'=>$motivation,
+            'determination_filters'=>$determination,
+            'complementaire_filters'=>$complementaire,
+            'notes_filters'=>$notes
+        ];
+    }
  
 
     public function index()
