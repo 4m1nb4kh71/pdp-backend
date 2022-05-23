@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('viabilites', function (Blueprint $table) {
             $table->id();
              $table->foreignId('projet_id')->constrained('projets');
-             $table->foreignId('estimationclient_id')->constrained('estimation_clients');
-             $table->foreignId('estimationconcurrent_id')->constrained('estimation_concurrents');
-             $table->foreignId('estimationfournisseur_id')->constrained('estimation_fournisseurs');
-             $table->foreignId('estimation_id')->constrained('estimations');
-
+             $table->foreignId('client_estimation')->references('id')->on('estimations');
+             $table->foreignId('concurrent_estimation')->references('id')->on('estimations');
+             $table->foreignId('fournisseur_estimation')->references('id')->on('estimations');
+             $table->foreignId('investissement_estimation')->references('id')->on('estimations');
+             $table->foreignId('financement_estimation')->references('id')->on('estimations');
+             $table->foreignId('ca_estimation')->references('id')->on('estimations');
             $table->timestamps();
         });
     }

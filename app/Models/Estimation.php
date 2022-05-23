@@ -17,4 +17,6 @@ class Estimation extends Model
     public function client(){
         return $this->hasMany(client::class); 
     }
+
+    
 }

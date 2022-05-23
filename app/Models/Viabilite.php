@@ -12,10 +12,13 @@ class Viabilite extends Model
     protected $fillable=[
         'projet_id',
         'viabilite_id',
-        'estimationclient_id',
-        'estimationconcurrent_id',
-        'estimationfournisseur_id',
-        'estimation',
+        'client_estimation',
+        'concurrent_estimation',
+        'fournisseur_estimation',
+        'estimation_investissement',
+        'investissement_estimation',
+        'financement_estimation',
+        'ca_estimation'
     ];
    
 
@@ -25,18 +28,24 @@ class Viabilite extends Model
  
 
     public function estimationclient(){
-        return $this->belongsTo(EstimationClient::class,'estimationclient_id'); 
+        return $this->belongsTo(EstimationClient::class,'client_estimation'); 
     }
 
     public function estimationconcurrent(){
-        return $this->belongsTo(EstimationFournisseur::class,'estimationconcurrent_id'); 
+        return $this->belongsTo(EstimationFournisseur::class,'concurrent_estimation'); 
     }
     public function estimationfournisseur(){
-        return $this->belongsTo(EstimationConcurrent::class,'estimationfournisseur_id'); 
+        return $this->belongsTo(EstimationConcurrent::class,'fournisseur_estimation'); 
     }
 
-    public function estimation(){
-        return $this->belongsTo(Estimation::class,'estimation_id'); 
+    public function estimationinvestissement(){
+        return $this->belongsTo(Estimation::class,'investissement_estimation'); 
+    }
+    public function estimationfinancement(){
+        return $this->belongsTo(Estimation::class,'financement_estimation'); 
+    }
+    public function estimationca(){
+        return $this->belongsTo(Estimation::class,'ca_estimation'); 
     }
  
 

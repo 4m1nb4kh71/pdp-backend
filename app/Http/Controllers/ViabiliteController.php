@@ -6,6 +6,9 @@ use App\Models\Viabilite;
 use App\Http\Requests\StoreViabiliteRequest;
 use App\Http\Requests\UpdateViabiliteRequest;
 use App\Http\Resources\ViabiliteResource;
+use App\Models\Echelle;
+use App\Models\Estimation;
+use App\Models\ModeOccupation;
 use App\Models\Projet;
 use Carbon\Carbon;
 
@@ -23,7 +26,29 @@ class ViabiliteController extends Controller
         $viabilite = Viabilite::all();
         return $viabilite;
     }
-
+    public function echellefilter(){
+        $echelles = Echelle::all();
+       
+        return $echelles;
+    }
+    public function implantationfilter(){
+        $modeoccupations = ModeOccupation::all();
+        return $modeoccupations;
+    }
+    public function Estimationfilter(){
+        $estimations = Estimation::all();
+        return $estimations;
+    }
+    public function filters(){
+        $echelles = $this->echellefilter();
+        $modeoccupations =$this->implantationfilter();
+        $estimations=$this->Estimationfilter();
+        return [
+            'echelle_filters'=>$echelles,
+            'modeoccupation_filters'=>$modeoccupations,
+            'estimation_filters'=>$estimations
+        ];
+    }    
     /**
      * Show the form for creating a new resource.
      *
