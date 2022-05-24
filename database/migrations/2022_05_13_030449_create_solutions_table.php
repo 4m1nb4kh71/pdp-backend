@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('solutions', function (Blueprint $table) {
             $table->id();
    
-            $table->longText('description_besoin');
+            $table->longText('description_besoin')->nullable();
             
             $table->date('creation_date')->default(now());
           //  $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
-            $table->foreignId('projet_id')->constrained('projets');
-            $table->foreignId('faisabilite_id')->constrained('faisabilites');
-            $table->foreignId('originalite_id')->constrained('originalites');
-            $table->foreignId('marche_id')->constrained('marches');
+            $table->foreignId('projet_id')->nullable()->constrained('projets');
+            $table->foreignId('faisabilite_id')->nullable()->constrained('faisabilites');
+            $table->foreignId('originalite_id')->nullable()->constrained('originalites');
+            $table->foreignId('marche_id')->nullable()->constrained('marches');
            
             $table->timestamps();
         });

@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
 
-            $table->text('nom');
-            $table->date('creation_date')->default(now());
+            $table->text('nom')->nullable();
+            $table->date('creation_date')->default(now())->nullable();
 
-           $table->foreignId('echelle_id')->constrained('echelles');
+           $table->foreignId('echelle_id')->nullable()->constrained('echelles');
          //  $table->foreignId('estimation_id')->constrained('estimations');
-           $table->foreignId('viabilite_id')->constrained('viabilites');
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
 
 
             $table->timestamps();

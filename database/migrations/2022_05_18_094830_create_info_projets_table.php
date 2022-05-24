@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('info_projets', function (Blueprint $table) {
             $table->id();
-            $table->text('programme_investissement');
-            $table->text('ressource_financement');
-            $table->text('processus_producion_fabrication');
-            $table->foreignId('viabilite_id')->constrained('viabilites');
+            $table->text('programme_investissement')->nullable();
+            $table->text('ressource_financement')->nullable();
+            $table->text('processus_producion_fabrication')->nullable();
+            $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
 
             
             

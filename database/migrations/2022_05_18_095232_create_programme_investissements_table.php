@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('programme_investissements', function (Blueprint $table) {
             $table->id();
-            $table->text('nom');
-            $table->text('prix');
-            $table->date('creation_date')->default(now());
+            $table->text('nom')->nullable();
+            $table->text('prix')->nullable();
+            $table->date('creation_date')->default(now())->nullable();
 
-           $table->foreignId('viabilite_id')->constrained('viabilites');
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
             $table->timestamps();
         });
     }

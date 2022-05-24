@@ -13,9 +13,7 @@ use App\Models\Projet;
 use App\Models\EstimationClient;
 use App\Models\EstimationConcurrent;
 use App\Models\EstimationFournisseur;
-use App\Models\Estimation;
-use App\Models\Echelle;
-use App\Models\ModeOccupation;
+
 use Carbon\Carbon;
 
 
@@ -29,51 +27,7 @@ class ViabiliteController extends Controller
      * 
      */
 
-    public function filter_estim(){
-        $estimation = Estimation::all();
-        return $estimation;
-    }
-
-    public function filters_estimf(){
-        $estimationfournisseur = EstimationFournisseur::all();
-        return $estimationfournisseur;
-    }
-
-    public function filters_estimco(){
-        $estimationconcurrent = EstimationConcurrent::all();
-        return $estimationconcurrent;
-    }
-    
-    public function filter_estimcl(){
-        $estimationclient = EstimationClient::all();
-        return $estimationclient;
-    }
-    public function filter_echelle(){
-        $echelle = Echelle::all();
-        return $echelle;
-    }
-    public function filter_mode_ocuupation(){
-        $modeoccupation = ModeOccupation::all();
-        return $modeoccupation;
-    }
    
-
-    public function filters(){
-        $estimation = $this->filter_estim();
-        $estimationfournisseur = $this->filters_estimf();
-        $estimationconcurrent = $this->filters_estimco();
-        $estimationclient = $this->filter_estimcl();
-        $echelle = $this->filter_echelle();
-        $modeoccupation = $this->filter_mode_ocuupation();
-        return [
-            'filter_estim'=>$estimation,
-            'filters_estimf'=>$estimationfournisseur,
-            'filters_estimco'=>$estimationconcurrent,
-            'filter_estimcl'=>$estimationclient,
-            'filter_echelle'=>$echelle,
-            'filter_mode_ocuupation'=>$modeoccupation
-        ];
-    }
 
     public function index()
     {
@@ -125,11 +79,13 @@ class ViabiliteController extends Controller
         //
         $viabilite = Viabilite::create([
             'projet_id'=>$request->projet_id,
-            'estimationclient_id'=>$request->estimationclient_id,
-            'estimationconcurrent_id'=>$request->estimationconcurrent_id,
-            'estimationfournisseur_id'=>$request->estimationfournisseur_id,
-            'estimation_id'=>$request->estimation_id,
-            
+            'ca_estimation'=>$request->ca_estimation,
+            'financement_estimation'=>$request->financement_estimation,
+            'investissement_estimation'=>$request->investissement_estimation,
+            'fournisseur_estimation'=>$request->fournisseur_estimation,
+            'concurrent_estimation'=>$request->concurrent_estimation,
+            'client_estimation'=>$request->client_estimation,
+            'estimationconcurrent_id'=>$request->estimationconcurrent_id,    
             'creation_date'=>new Carbon($request->creation_date) ,
            // 'item_id'=>$request->item_id,
         ]);

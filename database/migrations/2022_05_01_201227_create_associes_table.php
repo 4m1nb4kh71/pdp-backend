@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('associes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('projet_id')->constrained('projets')->onDelete('cascade');
-            $table->text('nom')->default('associe name');
-            $table->text('prenom')->default('associe prenom');
+            $table->foreignId('projet_id')->nullable()->constrained('projets')->onDelete('cascade');
+            $table->text('nom')->default('associe name')->nullable();
+            $table->text('prenom')->default('associe prenom')->nullable();
             $table->date('date_naissance')->default(now());
-            $table->foreignId('expduration_id')->default(1)->constrained('expdurations');
-            $table->text('expfield')->default('associe name');
-            $table->text('type')->default('Proteur de projet');
+            $table->foreignId('expduration_id')->nullable()->default(1)->constrained('expdurations');
+            $table->text('expfield')->default('associe name')->nullable();
+            $table->text('type')->default('Proteur de projet')->nullable();
 
-            $table->text('formation')->default('formation');
+            $table->text('formation')->default('formation')->nullable();
             $table->timestamps();
         });
     }

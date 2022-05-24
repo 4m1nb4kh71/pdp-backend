@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('implantations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('modeoccupation_id')->constrained('mode_occupations');
-            $table->text('adresse');
-            $table->text('montant_loyer');
-            $table->date('creation_date')->default(now());
+            $table->foreignId('modeoccupation_id')->nullable()->constrained('mode_occupations');
+            $table->text('adresse')->nullable();
+            $table->text('montant_loyer')->nullable();
+            $table->date('creation_date')->default(now())->nullable();
 
-           $table->foreignId('viabilite_id')->constrained('viabilites');
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites')->nullable();
 
 
             $table->timestamps();
