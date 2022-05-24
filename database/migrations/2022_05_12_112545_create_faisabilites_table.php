@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('faisabilites', function (Blueprint $table) {
             $table->id();
-            $table->text('nom'); 
+            $table->text('nom')->nullable(); 
             $table->timestamps();
             
         });

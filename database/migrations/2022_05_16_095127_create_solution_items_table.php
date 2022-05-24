@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
 
             
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->date('creation_date')->default(now());
-           $table->foreignId('solution_id')->constrained('solutions');
-           $table->foreignId('type_solution_id')->constrained('type_solutions');
+           $table->foreignId('solution_id')->nullable()->constrained('solutions');
+           $table->foreignId('type_solution_id')->nullable()->constrained('type_solutions');
 
             $table->timestamps();
         });

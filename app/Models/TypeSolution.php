@@ -16,4 +16,7 @@ class TypeSolution extends Model
     public function solutionitem(){
         return $this->hasMany(SolutionItem::class); 
     }
+    public function caitem(){
+        return $this->hasMany(CaItem::class); 
+    }
 }

@@ -17,19 +17,19 @@ return new class extends Migration
             $table->id();
 
             $table->longText('title')->default('projet name');
-            $table->longText('description')->default('projet description');
+            $table->longText('description')->default('projet description')->nullable();
             $table->date('creation_date')->default(now());
             $table->string('id_forsa')->default('id forsa');
 
-            $table->string('scalenote')->default('0');
-            $table->string('croissancenote')->default('0');
-            $table->string('emplacementnote')->default('0');
+            $table->string('scalenote')->default('0')->nullable();
+            $table->string('croissancenote')->default('0')->nullable();
+            $table->string('emplacementnote')->default('0')->nullable();
             $table->text('secteur')->default('secteur');
 
            // $table->foreign('secteur_id')->references('id')->on('secteurs');
         
 
-            $table->foreignId('formejuridique_id')->default(1)->constrained('formejuridiques');
+            $table->foreignId('formejuridique_id')->nullable()->default(1)->constrained('formejuridiques');
            
             $table->timestamps();
         });

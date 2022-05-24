@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('porteurs', function (Blueprint $table) {
             $table->id();
-            $table->string('etat');
+            $table->string('etat')->nullable();
             $table->timestamps();
         });
 

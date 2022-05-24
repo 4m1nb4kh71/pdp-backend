@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('fournisseurs', function (Blueprint $table) {
             $table->id();
 
-            $table->text('nom');
+            $table->text('nom')->nullable();
             $table->date('creation_date')->default(now());
 
-           $table->foreignId('viabilite_id')->constrained('viabilites');
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
 
 
             $table->timestamps();

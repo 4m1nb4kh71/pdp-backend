@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('motivations', function (Blueprint $table) {
             $table->id();
-            $table->text('nom'); 
+            $table->text('nom')->nullable(); 
             $table->timestamps();
         });
     }

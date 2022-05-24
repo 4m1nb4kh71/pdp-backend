@@ -18,10 +18,14 @@ class ViabiliteResource extends JsonResource
         return [
             'id' => $this->id,
             'projet_id'=>$this->projet_id,
-            'estimationfournisseur_id'=>$this->estimationfournisseur_id,
             'estimationconcurrent_id'=>$this->estimationconcurrent_id,
-            'estimationclient_id'=>$this->estimationclient_id,
-            'estimation_id'=>$this->estimation_id,
+            'client_estimation'=>$this->client_estimation,
+            'concurrent_estimation'=>$this->concurrent_estimation,
+            'fournisseur_estimation'=>$this->fournisseur_estimation,
+            'investissement_estimation'=>$this->investissement_estimation,
+            'financement_estimation'=>$this->financement_estimation,
+            'ca_estimation'=>$this->ca_estimation,
+        
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

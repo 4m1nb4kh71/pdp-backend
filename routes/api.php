@@ -10,6 +10,7 @@ use App\Http\Controllers\PotentielController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CaItemController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\ComplementaireController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\InfoProjetController;
 use App\Http\Controllers\PlanFinancementController;
 use App\Http\Controllers\ProgrammeInvestissementController;
 use App\Http\Controllers\ChiffreAffaireController;
+use App\Http\Controllers\ExportController;
 
 
 /*
@@ -173,7 +175,9 @@ Route::group(['middleware' => ['auth:api']], function () {
            //chiffreaffaire crud
            Route::get('/chiffreaffaires',[ChiffreAffaireController::class,'index']);
            Route::post('/create_chiffreaffaires',[ChiffreAffaireController::class,'store']);
-
+            //caItem crud
+            Route::get('/caItems',[CaItemController::class,'index']);
+            Route::post('/create_caItem',[CaItemController::class,'store']);
             //viabilite filters
             Route::get('/filter_estim',[ViabiliteController::class,'filter_estim']);
             Route::get('/filters_estimf',[ViabiliteController::class,'filters_estimf']);
@@ -182,4 +186,8 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::get('/filter_mode_ocuupation',[ViabiliteController::class,'filter_mode_ocuupation']);
             Route::get('/filter_echelle',[ViabiliteController::class,'filter_echelle']);
             Route::get('/viabilite_filters',[ViabiliteController::class,'filters']);
+
+            //export
+            Route::get('/export/{id}',[ExportController::class,'show']);
+
 });
