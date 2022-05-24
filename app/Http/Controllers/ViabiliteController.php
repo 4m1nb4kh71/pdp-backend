@@ -13,9 +13,6 @@ use App\Models\Projet;
 use App\Models\EstimationClient;
 use App\Models\EstimationConcurrent;
 use App\Models\EstimationFournisseur;
-use App\Models\Estimation;
-use App\Models\Echelle;
-use App\Models\ModeOccupation;
 use Carbon\Carbon;
 
 
@@ -27,54 +24,7 @@ class ViabiliteController extends Controller
      * @return \Illuminate\Http\Response
      * 
      * 
-     */
-
-    public function filter_estim(){
-        $estimation = Estimation::all();
-        return $estimation;
-    }
-
-    public function filters_estimf(){
-        $estimationfournisseur = EstimationFournisseur::all();
-        return $estimationfournisseur;
-    }
-
-    public function filters_estimco(){
-        $estimationconcurrent = EstimationConcurrent::all();
-        return $estimationconcurrent;
-    }
-    
-    public function filter_estimcl(){
-        $estimationclient = EstimationClient::all();
-        return $estimationclient;
-    }
-    public function filter_echelle(){
-        $echelle = Echelle::all();
-        return $echelle;
-    }
-    public function filter_mode_ocuupation(){
-        $modeoccupation = ModeOccupation::all();
-        return $modeoccupation;
-    }
-   
-
-    public function filters(){
-        $estimation = $this->filter_estim();
-        $estimationfournisseur = $this->filters_estimf();
-        $estimationconcurrent = $this->filters_estimco();
-        $estimationclient = $this->filter_estimcl();
-        $echelle = $this->filter_echelle();
-        $modeoccupation = $this->filter_mode_ocuupation();
-        return [
-            'filter_estim'=>$estimation,
-            'filters_estimf'=>$estimationfournisseur,
-            'filters_estimco'=>$estimationconcurrent,
-            'filter_estimcl'=>$estimationclient,
-            'filter_echelle'=>$echelle,
-            'filter_mode_ocuupation'=>$modeoccupation
-        ];
-    }
-
+     */ 
     public function index()
     {
         //

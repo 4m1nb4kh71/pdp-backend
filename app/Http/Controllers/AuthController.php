@@ -11,7 +11,10 @@ use Validator;
 
 class AuthController extends BaseController
 {
-    //
+    public function index(){
+        $users = User::all();
+        return $users;
+    }
     public function login(Request $request)
     {
         $this->validate($request, [

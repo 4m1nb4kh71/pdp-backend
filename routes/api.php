@@ -62,17 +62,12 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/projets',[ProjetController::class,'index']);
     Route::post('/create_projet',[ProjetController::class,'store']);
 
-
+    Route::get('users', [AuthController::class, 'index']);
     //associe filters
     Route::get('/associe_filters',[AssocieController::class,'filters']);
     //associe crud
     Route::post('/create_associe',[AssocieController::class,'store']);
 
-
-     //potentiel filters
-     Route::get('/potentiel_filtersA',[PotentielController::class,'filtersA']);
-     Route::get('/potentiel_filtersB',[PotentielController::class,'filtersB']);
-     Route::get('/potentiel_filtersC',[PotentielController::class,'filtersC']);
 
      //potentiel crud
      Route::get('/potentiels',[PotentielController::class,'index']);
