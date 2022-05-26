@@ -11,6 +11,7 @@ class Concurrent extends Model
     protected $fillable = [
         'nom',
         'viabilite_id',
+        'echelle_id'
     ];
 
     

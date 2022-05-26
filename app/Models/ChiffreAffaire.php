@@ -11,16 +11,15 @@ class ChiffreAffaire extends Model
     protected $table='chiffre_affaires';
     protected $fillable=[
         'viabilite_id',
-            
-        'taux_evaluation_activite',     
-        'total_general',     
+        'nom',
+       
+        'quantite_vendu',     
+        'prix_unitaire',     
+        'total',         
         
     ];
     public function viabilite(){
         return $this->belongsTo(Viabilite::class,'viabilite_id'); 
     }
-
-    public function caitem(){
-        return $this->hasMany(CaItem::class); 
-    }
+  
 }

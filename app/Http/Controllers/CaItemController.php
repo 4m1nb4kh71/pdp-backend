@@ -42,9 +42,8 @@ class CaItemController extends Controller
     {
         //
         $caItem = CaItem::create([
-            'chiffre_affaire_id'=>$request->chiffre_affaire_id,
+            
             'type_ca_id'=>$request->type_ca_id,
-
             'prix_unitaire'=>$request->prix_unitaire,
             'quantite_vendu'=>$request->quantite_vendu,
             'total'=>$request->total,

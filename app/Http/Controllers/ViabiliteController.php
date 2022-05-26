@@ -81,8 +81,10 @@ class ViabiliteController extends Controller
             'fournisseur_estimation'=>$request->fournisseur_estimation,
             'concurrent_estimation'=>$request->concurrent_estimation,
             'client_estimation'=>$request->client_estimation,
-            'estimationconcurrent_id'=>$request->estimationconcurrent_id,    
+            'estimationconcurrent_id'=>$request->estimationconcurrent_id, 
+            'nombrepostecrees'=>$request->nombrepostecrees,
             'creation_date'=>new Carbon($request->creation_date) ,
+            
            // 'item_id'=>$request->item_id,
         ]);
         return new ViabiliteResource($viabilite);

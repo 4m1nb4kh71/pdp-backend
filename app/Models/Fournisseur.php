@@ -11,7 +11,8 @@ class Fournisseur extends Model
     protected $table='fournisseurs';
     protected $fillable = [
         'nom',
-        'viabilite_id'
+        'viabilite_id',
+        'echelle_id'
     ];
 
     

@@ -42,9 +42,11 @@ class ChiffreAffaireController extends Controller
         //
         $chiffreaffaire = ChiffreAffaire::create([
             'viabilite_id'=>$request->viabilite_id,
-            'total_general'=>$request->total_general,
-            'taux_evaluation_activite'=>$request->taux_evaluation_activite,
-            
+            'nom'=>$request->nom,
+            'prix_unitaire'=>$request->prix_unitaire,
+            'quantite_vendu'=>$request->quantite_vendu,
+            'total'=>$request->total,
+           
             
             ]);
         return new ChiffreAffaireResource($chiffreaffaire);

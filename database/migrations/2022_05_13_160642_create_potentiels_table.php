@@ -21,16 +21,16 @@ return new class extends Migration
                 $table->string('attractivite_territoir_emplacement')->nullable();
                 $table->string('croissance_marche')->nullable();
                 //pot equipe
-                $table->boolean('propre_patron')->default(0)->nullable();
-                $table->boolean('Exercer_passion')->default(0)->nullable();
-                $table->boolean('Ameliorer_revenus')->default(0)->nullable();
-                $table->boolean('formaliser_activite')->default(0)->nullable();
-                $table->boolean('independent_financierement')->default(0)->nullable();
-                $table->boolean('defis')->default(0)->nullable();
+                $table->boolean('propre_patron')->nullable();
+                $table->boolean('Exercer_passion')->nullable();
+                $table->boolean('Ameliorer_revenus')->nullable();
+                $table->boolean('formaliser_activite')->nullable();
+                $table->boolean('independent_financierement')->nullable();
+                $table->boolean('defis')->nullable();
                 //determination de l'entrepreneur
-                $table->boolean('decisions_judicieuses')->default(0)->nullable();
-                $table->boolean('realisation_objectifs')->default(0)->nullable();
-                $table->boolean('prendre_risques')->default(0)->nullable();
+                $table->boolean('decisions_judicieuses')->nullable();
+                $table->boolean('realisation_objectifs')->nullable();
+                $table->boolean('prendre_risques')->nullable();
 
                // $table->foreignId('porteur_id')->default(1)->constrained('porteurs');
                

@@ -42,9 +42,8 @@ class ConcurrentController extends Controller
         //
         $concurrent = Concurrent::create([
             'viabilite_id'=>$request->viabilite_id,
-         
+            'echelle_id'=>$request->echelle_id,
             'nom'=>$request->nom,
-      
             ]);
         return new ConcurrentResource($concurrent);
     }

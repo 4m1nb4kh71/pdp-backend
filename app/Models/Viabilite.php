@@ -18,7 +18,8 @@ class Viabilite extends Model
         'estimation_investissement',
         'investissement_estimation',
         'financement_estimation',
-        'ca_estimation'
+        'ca_estimation',
+        'nombrepostecrees'
     ];
    
 

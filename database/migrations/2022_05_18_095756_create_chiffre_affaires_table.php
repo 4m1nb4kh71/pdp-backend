@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('chiffre_affaires', function (Blueprint $table) {
             $table->id();
-            $table->text('viabilite_id')->nullable();
-         
-            $table->text('total_general')->nullable();
-            $table->text('taux_evaluation_activite')->nullable();
+            $table->foreignId('viabilite_id')->constrained('viabilites')->nullable();
+            $table->text('quantite_vendu')->nullable();
+            $table->text('prix_unitaire')->nullable();
+            $table->text('total')->nullable();
+
+           $table->text('nom');
             $table->date('creation_date')->default(now())->nullable();
 
 

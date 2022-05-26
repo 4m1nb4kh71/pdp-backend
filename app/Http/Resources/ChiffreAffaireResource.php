@@ -18,9 +18,12 @@ class ChiffreAffaireResource extends JsonResource
         return [
             'id' => $this->id,
             'viabilite_id'=>$this->viabilite_id,
-            
-            'taux_evaluation_activite'=>$this->taux_evaluation_activite,
-            'total_general'=>$this->total_general,
+            'type_ca_id'=>$this->type_ca_id,
+
+            'prix_unitaire'=>$this->prix_unitaire,
+            'quantite_vendu'=>$this->quantite_vendu,
+            'total'=>$this->total,
+         
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

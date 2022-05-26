@@ -45,7 +45,7 @@ class FournisseurController extends Controller
         //
         $fournisseur = Fournisseur::create([
             'viabilite_id'=>$request->viabilite_id,
-         
+            'echelle_id'=>$request->echelle_id,
             'nom'=>$request->nom,
       
             ]);
