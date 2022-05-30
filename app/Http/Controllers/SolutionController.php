@@ -104,9 +104,10 @@ class SolutionController extends Controller
      * @param  \App\Models\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function show(Solution $solution)
+    public function show($id)
     {
-        //
+        $solution = Solution::where("projet_id",$id)->get();
+        return $solution;
     }
 
     /**

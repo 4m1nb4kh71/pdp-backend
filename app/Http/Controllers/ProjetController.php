@@ -65,9 +65,10 @@ class ProjetController extends Controller
      * @param  \App\Models\Projet  $projet
      * @return \Illuminate\Http\Response
      */
-    public function show(Projet $projet)
+    public function show($id)
     {
-        //
+        $projet = Projet::findOrFail($id);
+        return $projet;
     }
 
     /**

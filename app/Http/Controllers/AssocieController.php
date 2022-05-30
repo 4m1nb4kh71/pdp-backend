@@ -63,9 +63,12 @@ class AssocieController extends Controller
      * @param  \App\Models\Associe  $associe
      * @return \Illuminate\Http\Response
      */
-    public function show(Associe $associe)
+    public function show($id)
     {
-        //
+
+            $associes = Associe::where("projet_id",$id)->get();
+            return $associes;
+        
     }
 
     /**

@@ -187,7 +187,11 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::get('/filter_echelle',[ViabiliteController::class,'filter_echelle']);
             Route::get('/viabilite_filters',[ViabiliteController::class,'filters']);
 
-            //export
+            //Show
             Route::get('/export/{id}',[ExportController::class,'show']);
-
+            Route::get('/showprojet/{id}',[ProjetController::class,'show']);
+            Route::get('/showassocies/{id}',[AssocieController::class,'show']);
+            Route::get('/showsolution/{id}',[SolutionController::class,'show']);
+            Route::get('/showsolutionitems/{id}',[SolutionItemController::class,'show']);
+            Route::get('/showpotentiel/{id}',[PotentielController::class,'show']);
 });
