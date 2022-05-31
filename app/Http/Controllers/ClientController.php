@@ -58,9 +58,10 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show($id)
     {
-        //
+        $clients = Client::where("viabilite_id",$id)->get();
+        return $clients;
     }
 
     /**

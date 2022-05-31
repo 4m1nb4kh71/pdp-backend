@@ -30,7 +30,9 @@ use App\Http\Controllers\PlanFinancementController;
 use App\Http\Controllers\ProgrammeInvestissementController;
 use App\Http\Controllers\ChiffreAffaireController;
 use App\Http\Controllers\ExportController;
-
+use App\Models\Client;
+use App\Models\Concurrent;
+use App\Models\Fournisseur;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,4 +196,11 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::get('/showsolution/{id}',[SolutionController::class,'show']);
             Route::get('/showsolutionitems/{id}',[SolutionItemController::class,'show']);
             Route::get('/showpotentiel/{id}',[PotentielController::class,'show']);
+            Route::get('/showviabilite/{id}',[ViabiliteController::class,'show']);
+            Route::get('/showclients/{id}',[ClientController::class,'show']);
+            Route::get('/showfournisseurs/{id}',[FournisseurController::class,'show']);
+            Route::get('/showconcurrents/{id}',[ConcurrentController::class,'show']);
+            Route::get('/showproginvestissement/{id}',[ProgrammeInvestissementController::class,'show']);
+            Route::get('/showplanfinancement/{id}',[PlanFinancementController::class,'show']);
+            Route::get('/showca/{id}',[ChiffreAffaireController::class,'show']);
 });

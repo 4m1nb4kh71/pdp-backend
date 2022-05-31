@@ -106,7 +106,7 @@ class SolutionController extends Controller
      */
     public function show($id)
     {
-        $solution = Solution::where("projet_id",$id)->get();
+        $solution = Solution::where("projet_id",$id)->first();
         return $solution;
     }
 

@@ -97,9 +97,10 @@ class ViabiliteController extends Controller
      * @param  \App\Models\Viabilite  $viabilite
      * @return \Illuminate\Http\Response
      */
-    public function show(Viabilite $viabilite)
+    public function show($id)
     {
-        //
+        $viabilite = Viabilite::where("projet_id",$id)->get();
+        return $viabilite;
     }
 
     /**

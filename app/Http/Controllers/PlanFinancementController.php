@@ -60,9 +60,10 @@ class PlanFinancementController extends Controller
      * @param  \App\Models\PlanFinancement  $planFinancement
      * @return \Illuminate\Http\Response
      */
-    public function show(PlanFinancement $planFinancement)
+    public function show($id)
     {
-        //
+        $planfinancement = PlanFinancement::where("viabilite_id",$id)->get();
+        return $planfinancement;
     }
 
     /**

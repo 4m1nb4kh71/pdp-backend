@@ -58,9 +58,10 @@ class ChiffreAffaireController extends Controller
      * @param  \App\Models\ChiffreAffaire  $chiffreAffaire
      * @return \Illuminate\Http\Response
      */
-    public function show(ChiffreAffaire $chiffreAffaire)
+    public function show($id)
     {
-        //
+        $ca = ChiffreAffaire::where("viabilite_id",$id)->get();
+        return $ca;
     }
 
     /**
