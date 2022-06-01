@@ -199,6 +199,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::get('/showviabilite/{id}',[ViabiliteController::class,'show']);
             Route::get('/showclients/{id}',[ClientController::class,'show']);
             Route::get('/showfournisseurs/{id}',[FournisseurController::class,'show']);
+            Route::get('/showimplantation/{id}',[ImplantationController::class,'show']);
             Route::get('/showconcurrents/{id}',[ConcurrentController::class,'show']);
             Route::get('/showproginvestissement/{id}',[ProgrammeInvestissementController::class,'show']);
             Route::get('/showplanfinancement/{id}',[PlanFinancementController::class,'show']);

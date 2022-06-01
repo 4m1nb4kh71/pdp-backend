@@ -99,7 +99,7 @@ class ViabiliteController extends Controller
      */
     public function show($id)
     {
-        $viabilite = Viabilite::where("projet_id",$id)->get();
+        $viabilite = Viabilite::where("projet_id",$id)->first();
         return $viabilite;
     }
 

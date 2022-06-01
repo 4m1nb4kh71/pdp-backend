@@ -116,7 +116,7 @@ class PotentielController extends Controller
      */
     public function show( $id)
     {
-        $potentiel = Potentiel::where("projet_id",$id)->get();
+        $potentiel = Potentiel::where("projet_id",$id)->first();
         return $potentiel;
     }
 
