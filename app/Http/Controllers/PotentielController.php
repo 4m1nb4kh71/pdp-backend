@@ -114,9 +114,10 @@ class PotentielController extends Controller
      * @param  \App\Models\Potentiel  $potentiel
      * @return \Illuminate\Http\Response
      */
-    public function show(Potentiel $potentiel)
+    public function show( $id)
     {
-        //
+        $potentiel = Potentiel::where("projet_id",$id)->first();
+        return $potentiel;
     }
 
     /**

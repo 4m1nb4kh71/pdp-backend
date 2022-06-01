@@ -47,7 +47,7 @@ class EquipeController extends Controller
      */
     public function show(Equipe $equipe)
     {
-        //
+        
     }
 
     /**

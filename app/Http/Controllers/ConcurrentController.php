@@ -54,9 +54,10 @@ class ConcurrentController extends Controller
      * @param  \App\Models\Concurrent  $concurrent
      * @return \Illuminate\Http\Response
      */
-    public function show(Concurrent $concurrent)
+    public function show($id)
     {
-        //
+        $concurrents = Concurrent::where("viabilite_id",$id)->get();
+        return $concurrents;
     }
 
     /**

@@ -58,9 +58,10 @@ class FournisseurController extends Controller
      * @param  \App\Models\Fournisseur  $fournisseur
      * @return \Illuminate\Http\Response
      */
-    public function show(Fournisseur $fournisseur)
+    public function show($id)
     {
-        //
+        $fournisseurs = Fournisseur::where("viabilite_id",$id)->get();
+        return $fournisseurs;
     }
 
     /**

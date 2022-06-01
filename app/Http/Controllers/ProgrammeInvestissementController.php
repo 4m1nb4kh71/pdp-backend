@@ -57,9 +57,10 @@ class ProgrammeInvestissementController extends Controller
      * @param  \App\Models\ProgrammeInvestissement  $programmeInvestissement
      * @return \Illuminate\Http\Response
      */
-    public function show(ProgrammeInvestissement $programmeInvestissement)
+    public function show($id)
     {
-        //
+        $programmeinvess = ProgrammeInvestissement::where("viabilite_id",$id)->get();
+        return $programmeinvess;
     }
 
     /**

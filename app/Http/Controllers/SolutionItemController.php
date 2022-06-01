@@ -60,9 +60,10 @@ class SolutionItemController extends Controller
      * @param  \App\Models\SolutionItem  $solutionItem
      * @return \Illuminate\Http\Response
      */
-    public function show(SolutionItem $solutionItem)
+    public function show($id)
     {
-        //
+       $solutionitems = SolutionItem::where("solution_id",$id)->get();
+       return $solutionitems;
     }
 
     /**

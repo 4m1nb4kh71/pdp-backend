@@ -57,9 +57,10 @@ class ImplantationController extends Controller
      * @param  \App\Models\Implantation  $implantation
      * @return \Illuminate\Http\Response
      */
-    public function show(Implantation $implantation)
+    public function show($id)
     {
-        //
+        $implantation = Implantation::where('viabilite_id',$id)->first();
+        return $implantation;
     }
 
     /**
