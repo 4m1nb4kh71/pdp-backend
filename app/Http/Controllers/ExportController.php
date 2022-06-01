@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\SolutionResource;
 use App\Models\Associe;
+use App\Models\Potentiel;
 use App\Models\Projet;
 use App\Models\Solution;
 use App\Models\Viabilite;
@@ -52,11 +53,14 @@ class ExportController extends Controller
     public function show($id)
     {
         
-        $associes= Associe::where("projet_id",$id)->get();
-        $projet= Projet::find($id)->get();
+        $associes= Associe::where("projet_id",$id)->take(3)->get();
+        $projet= Projet::find($id)->first();
+        $potentiel= Potentiel::where("projet_id",$id)->first();
+
         $solution= Solution::where("projet_id",$id)->first();
         $solutionitem= $solution->solutionitem;
         $fournisseurs= Viabilite::where("projet_id",$id)->first()->fournisseur;
+        $viabilite= Viabilite::where("projet_id",$id)->first();
         $clients= Viabilite::where("projet_id",$id)->first()->client;
         $concurrents= Viabilite::where("projet_id",$id)->first()->concurrent;
         $programmeinvestissement= Viabilite::where("projet_id",$id)->first()->programmeinvestissement;
@@ -66,12 +70,13 @@ class ExportController extends Controller
         return (object) [
             'associes'=>$associes,
             'projet'=>$projet,
-          
+            'potentiel'=>$potentiel,
             'solution'=>(Object)[
                 'besoin_identifie'=>new SolutionResource($solution),
                 'solution_propose'=>$solutionitem,
             ],
             'viabilite'=>(Object)[
+                'viabilite'=>$viabilite,
                 'clients'=>$clients,
                 'fournisseurs'=>$fournisseurs,
                 'concurrents'=>$concurrents,

@@ -69,7 +69,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/associe_filters',[AssocieController::class,'filters']);
     //associe crud
     Route::post('/create_associe',[AssocieController::class,'store']);
-
+   
 
      //potentiel crud
      Route::get('/potentiels',[PotentielController::class,'index']);

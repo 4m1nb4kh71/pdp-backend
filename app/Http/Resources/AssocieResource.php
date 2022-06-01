@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SolutionResource extends JsonResource
+class AssocieResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -12,18 +13,20 @@ class SolutionResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public static $wrap = 'solution';
+    public static $wrap = 'associe';
     public function toArray($request)
     {
+        // $date_naissance = new Carbon($request->date_naissance) ;
+        // $age = Carbon::parse($date_naissance)->age ;
         return [
             'id' => $this->id,
-            'projet_id'=>$this->projet_id,
-            'faisabilite_id'=>$this->faisabilite_id,
-            'originalite_id'=>$this->originalite_id,
-            'marche_id'=>$this->marche_id,
-            'description_besoin' => $this->description_besoin,
-            
-           // 'item_id' => $this->item_id,
+            'expduration_id'=>$this->expduration_id,
+            'type'=>$this->type,
+
+            'expfield'=>$this->expfield,
+            'formation'=>$this->formation,
+            // 'age'=>$this-> age ,
+         
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

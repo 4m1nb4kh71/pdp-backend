@@ -16,4 +16,9 @@ class Echelle extends Model
     public function client(){
         return $this->hasMany(Client::class); 
     }
+
+    public function fournisseur(){
+        return $this->hasMany(Fournisseur::class); 
+    }
+    
 }

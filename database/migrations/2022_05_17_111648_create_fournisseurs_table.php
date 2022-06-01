@@ -17,10 +17,12 @@ return new class extends Migration
             $table->id();
 
             $table->text('nom')->nullable();
-            $table->date('creation_date')->default(now());
+          
+           
             $table->foreignId('echelle_id')->nullable()->constrained('echelles');
-           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
 
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
+           $table->date('creation_date')->default(now());
 
             $table->timestamps();
         });

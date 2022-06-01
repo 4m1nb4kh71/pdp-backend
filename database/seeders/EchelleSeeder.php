@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use App\Models\Echelle;
 use File;
 
+ ;
+
 class EchelleSeeder extends Seeder
 {
     /**

@@ -43,6 +43,9 @@ class AssocieController extends Controller
     public function store(StoreAssocieRequest $request)
     {
         //
+        
+        // $date_naissance = new Carbon($request->date_naissance) ;
+        // $age = Carbon::parse($date_naissance)->age ;
         $associe = Associe::create([
             'projet_id'=>$request->projet_id,
             'nom'=>$request->nom,
@@ -52,9 +55,15 @@ class AssocieController extends Controller
             'type'=>$request->type,
             'expfield'=>$request->expfield,
             'formation'=>$request->formation,
+            //'age'=>$request->$age,
+          
+       
         ]);
-        return $associe;
-
+       
+       
+        return $associe
+       
+    ;
     }
 
     /**

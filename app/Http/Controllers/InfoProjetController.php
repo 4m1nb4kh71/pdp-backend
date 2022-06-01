@@ -6,6 +6,7 @@ use App\Models\InfoProjet;
 use App\Http\Requests\StoreInfoProjetRequest;
 use App\Http\Requests\UpdateInfoProjetRequest;
 use App\Http\Resources\InfoProjetResource;
+use App\Models\Implantation;
 
 class InfoProjetController extends Controller
 {

@@ -19,4 +19,8 @@ class Fournisseur extends Model
     public function viabilite(){
         return $this->belongsTo(Viabilite::class,'viabilite_id'); 
     }
+    
+    public function echelle(){
+        return $this->belongsTo(Echelle::class,'echelle_id'); 
+    }
 }
