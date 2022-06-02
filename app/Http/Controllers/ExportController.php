@@ -54,7 +54,7 @@ class ExportController extends Controller
     {
         
         $associes= Associe::where("projet_id",$id)->take(3)->get();
-        $projet= Projet::find($id)->first();
+        $projet= Projet::findOrFail($id);
         $potentiel= Potentiel::where("projet_id",$id)->first();
 
         $solution= Solution::where("projet_id",$id)->first();
