@@ -19,7 +19,7 @@ return new class extends Migration
             
             $table->text('description')->nullable();
             $table->date('creation_date')->default(now());
-           $table->foreignId('solution_id')->nullable()->constrained('solutions');
+           $table->foreignId('solution_id')->nullable()->constrained('solutions')->onDelete('cascade');
            $table->foreignId('type_solution_id')->nullable()->constrained('type_solutions');
 
             $table->timestamps();

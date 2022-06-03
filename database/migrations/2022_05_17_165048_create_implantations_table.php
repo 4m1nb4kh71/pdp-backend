@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('montant_loyer')->nullable();
             $table->date('creation_date')->default(now())->nullable();
 
-           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites')->nullable();
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites')->onDelete('cascade')->nullable();
 
 
             $table->timestamps();

@@ -33,6 +33,7 @@ use App\Http\Controllers\ExportController;
 use App\Models\Client;
 use App\Models\Concurrent;
 use App\Models\Fournisseur;
+use App\Models\Projet;
 
 /*
 |--------------------------------------------------------------------------
@@ -204,4 +205,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::get('/showproginvestissement/{id}',[ProgrammeInvestissementController::class,'show']);
             Route::get('/showplanfinancement/{id}',[PlanFinancementController::class,'show']);
             Route::get('/showca/{id}',[ChiffreAffaireController::class,'show']);
+
+            //Delete
+            Route::delete('/deleteprojet/{id}',[ProjetController::class,'destroy']);
 });

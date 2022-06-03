@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('chiffre_affaires', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('viabilite_id')->constrained('viabilites')->nullable();
+            $table->foreignId('viabilite_id')->constrained('viabilites')->onDelete('cascade')->nullable();
             $table->text('quantite_vendu')->nullable();
             $table->text('prix_unitaire')->nullable();
             $table->text('total')->nullable();

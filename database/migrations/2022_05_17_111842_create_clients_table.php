@@ -21,7 +21,7 @@ return new class extends Migration
 
            $table->foreignId('echelle_id')->nullable()->constrained('echelles');
          //  $table->foreignId('estimation_id')->constrained('estimations');
-           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites')->onDelete('cascade');
 
 
             $table->timestamps();
