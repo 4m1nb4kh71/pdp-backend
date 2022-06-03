@@ -49,7 +49,7 @@ class AssocieController extends Controller
         $associe = Associe::create([
             'projet_id'=>$request->projet_id,
             'nom'=>$request->nom,
-            'date_naissance'=>new Carbon($request->date_naissance) ,
+            'date_naissance'=>new Carbon($request->date_naissance=='null'?now():$request->date_naissance) ,
             'prenom'=>$request->prenom,
             'expduration_id'=>$request->expduration_id,
             'type'=>$request->type,
