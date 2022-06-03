@@ -58,21 +58,22 @@ class ExportController extends Controller
         $potentiel= Potentiel::where("projet_id",$id)->first();
 
         $solution= Solution::where("projet_id",$id)->first();
-        $solutionitem= $solution->solutionitem;
-        $fournisseurs= Viabilite::where("projet_id",$id)->first()->fournisseur;
+        $solutionitem= $solution?->solutionitem;
         $viabilite= Viabilite::where("projet_id",$id)->first();
-        $clients= Viabilite::where("projet_id",$id)->first()->client;
-        $concurrents= Viabilite::where("projet_id",$id)->first()->concurrent;
-        $programmeinvestissement= Viabilite::where("projet_id",$id)->first()->programmeinvestissement;
-        $planfinancement= Viabilite::where("projet_id",$id)->first()->planfinancement;
-        $chiffreaffaire= Viabilite::where("projet_id",$id)->first()->chiffreaffaire;
+        $fournisseurs=  $viabilite?->fournisseur;
+      
+        $clients= $viabilite?->client;
+        $concurrents= $viabilite?->concurrent;
+        $programmeinvestissement= $viabilite?->programmeinvestissement;
+        $planfinancement= $viabilite?->planfinancement;
+        $chiffreaffaire= $viabilite?->chiffreaffaire;
 
         return (object) [
             'associes'=>$associes,
             'projet'=>$projet,
             'potentiel'=>$potentiel,
             'solution'=>(Object)[
-                'besoin_identifie'=>new SolutionResource($solution),
+                'besoin_identifie'=>$solution?new SolutionResource($solution):null,
                 'solution_propose'=>$solutionitem,
             ],
             'viabilite'=>(Object)[
