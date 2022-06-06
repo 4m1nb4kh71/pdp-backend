@@ -60,9 +60,9 @@ class ExportController extends Controller
         $solution= Solution::where("projet_id",$id)->first();
         $solutionitem= $solution?->solutionitem;
         $viabilite= Viabilite::where("projet_id",$id)->first();
-        $fournisseurs=  $viabilite?->fournisseurs==null?[]:$viabilite?->fournisseurs;
+        $fournisseurs=  $viabilite?->fournisseur==null?[]:$viabilite?->fournisseur;
       
-        $clients= $viabilite?->clients==null?[]:$viabilite?->clients;
+        $clients= $viabilite?->client==null?[]:$viabilite?->client;
         $concurrents= $viabilite?->concurrent==null?[]:$viabilite?->concurrent;
         $programmeinvestissement= $viabilite?->programmeinvestissement==null?[]:$viabilite?->programmeinvestissement;
         $planfinancement= $viabilite?->planfinancement==null?[]:$viabilite?->planfinancement;
