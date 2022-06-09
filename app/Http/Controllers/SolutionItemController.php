@@ -84,9 +84,14 @@ class SolutionItemController extends Controller
      * @param  \App\Models\SolutionItem  $solutionItem
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSolutionItemRequest $request, SolutionItem $solutionItem)
+    public function update(UpdateSolutionItemRequest $request,$id)
     {
-        //
+        $solutionitem = SolutionItem::find($id)->update([
+                'solution_id'=>$request->solution_id,
+                'type_solution_id'=>$request->type_solution_id,
+                'description'=>$request->description,
+        ]);
+        return $solutionitem;
     }
 
     /**

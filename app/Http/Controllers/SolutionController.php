@@ -128,9 +128,16 @@ class SolutionController extends Controller
      * @param  \App\Models\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSolutionRequest $request, Solution $solution)
+    public function update(UpdateSolutionRequest $request, $id)
     {
-        //
+        Solution::find($id)->update([
+            'projet_id'=>$request->projet_id,
+            'faisabilite_id'=>$request->faisabilite_id,
+            'originalite_id'=>$request->originalite_id,
+            'marche_id'=>$request->marche_id,
+            'description_besoin'=>$request->description_besoin,
+            'creation_date'=>new Carbon($request->creation_date) ,
+        ]);
     }
 
     /**

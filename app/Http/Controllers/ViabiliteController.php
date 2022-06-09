@@ -121,9 +121,22 @@ class ViabiliteController extends Controller
      * @param  \App\Models\Viabilite  $viabilite
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateViabiliteRequest $request, Viabilite $viabilite)
+    public function update(UpdateViabiliteRequest $request,$id)
     {
-        //
+         Viabilite::find($id)->update([
+            'projet_id'=>$request->projet_id,
+            'ca_estimation'=>$request->ca_estimation,
+            'financement_estimation'=>$request->financement_estimation,
+            'investissement_estimation'=>$request->investissement_estimation,
+            'fournisseur_estimation'=>$request->fournisseur_estimation,
+            'concurrent_estimation'=>$request->concurrent_estimation,
+            'client_estimation'=>$request->client_estimation,
+            'estimationconcurrent_id'=>$request->estimationconcurrent_id, 
+            'nombrepostecrees'=>$request->nombrepostecrees,
+            'creation_date'=>new Carbon($request->creation_date) ,
+        ]);
+        $viabilite = Viabilite::find($id);
+        return $viabilite;
     }
 
     /**
