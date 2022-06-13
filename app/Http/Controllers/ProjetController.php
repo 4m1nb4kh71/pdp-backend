@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Projet;
+use Illuminate\Http\Request;
+use App\Models\Formejuridique;
+use App\Http\Resources\ProjetResource;
 use App\Http\Requests\StoreProjetRequest;
 use App\Http\Requests\UpdateProjetRequest;
-use App\Http\Resources\ProjetResource;
-use App\Models\Formejuridique;
-use Carbon\Carbon;
 
 class ProjetController extends Controller
 {
@@ -79,7 +80,7 @@ class ProjetController extends Controller
      */
     public function edit(Projet $projet)
     {
-        //
+        
     }
 
     /**
@@ -89,9 +90,19 @@ class ProjetController extends Controller
      * @param  \App\Models\Projet  $projet
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProjetRequest $request, Projet $projet)
+    public function update(Request $request, $id)
     {
-        //
+         Projet::find($id)->update([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'creation_date'=>new Carbon($request->creation_date) ,
+            'id_forsa'=>$request->id_forsa,
+            'formejuridique_id'=>$request->formejuridique_id,
+            'secteur'=>$request->secteur
+        ]);
+        $projet = Projet::find($id);
+        return $projet;
+
     }
 
     /**

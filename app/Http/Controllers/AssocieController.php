@@ -98,9 +98,35 @@ class AssocieController extends Controller
      * @param  \App\Models\Associe  $associe
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAssocieRequest $request, Associe $associe)
+    public function update(UpdateAssocieRequest $request,$id)
     {
-        //
+        $associe = Associe::find($id);
+        if($associe)
+        {
+            $associe->update([
+                'projet_id'=>$request->projet_id,
+                'nom'=>$request->nom,
+                'date_naissance'=>new Carbon($request->date_naissance=='null'?now():$request->date_naissance) ,
+                'prenom'=>$request->prenom,
+                'expduration_id'=>$request->expduration_id,
+                'type'=>$request->type,
+                'expfield'=>$request->expfield,
+                'formation'=>$request->formation,
+            ]);
+        }
+        else{
+           Associe::create([
+            'projet_id'=>$request->projet_id,
+            'nom'=>$request->nom,
+            'date_naissance'=>new Carbon($request->date_naissance=='null'?now():$request->date_naissance) ,
+            'prenom'=>$request->prenom,
+            'expduration_id'=>$request->expduration_id,
+            'type'=>$request->type,
+            'expfield'=>$request->expfield,
+            'formation'=>$request->formation,
+        ]);
+        }
+        
     }
 
     /**

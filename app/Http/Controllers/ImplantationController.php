@@ -81,9 +81,16 @@ class ImplantationController extends Controller
      * @param  \App\Models\Implantation  $implantation
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateImplantationRequest $request, Implantation $implantation)
+    public function update(UpdateImplantationRequest $request,$id)
     {
-        //
+        $implantation = Projet::find($id)->update([
+            'viabilite_id'=>$request->viabilite_id,
+         
+            'modeoccupation_id'=>$request->modeoccupation_id,
+            'adresse'=>$request->adresse,
+            'montant_loyer'=>$request->montant_loyer,
+        ]);
+        return $implantation;
     }
 
     /**
