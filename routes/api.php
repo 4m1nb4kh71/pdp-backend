@@ -215,6 +215,12 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::post('/update_solution/{id}',[SolutionController::class,'update']);
             Route::post('/update_potentiel/{id}',[PotentielController::class,'update']);
             Route::post('/update_viabilite/{id}',[ViabiliteController::class,'update']);
+            Route::post('/update_client/{id}',[ClientController::class,'update']);
+            Route::post('/update_fournisseur/{id}',[FournisseurController::class,'update']);
+            Route::post('/update_concurrent/{id}',[ConcurrentController::class,'update']);
             Route::post('/update_implantation/{id}',[ImplantationController::class,'update']);
+            Route::post('/update_proginvess/{id}',[ProgrammeInvestissementController::class,'update']);
+            Route::post('/update_planfinance/{id}',[PlanFinancementController::class,'update']);
+            Route::post('/update_ca/{id}',[ChiffreAffaireController::class,'update']);
             
 });

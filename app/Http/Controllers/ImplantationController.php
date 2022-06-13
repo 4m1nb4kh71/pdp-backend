@@ -83,14 +83,24 @@ class ImplantationController extends Controller
      */
     public function update(UpdateImplantationRequest $request,$id)
     {
-        $implantation = Projet::find($id)->update([
+        $implantation = Implantation::find($id);
+        if($implantation)
+        {
+            $implantation->update([
+                'viabilite_id'=>$request->viabilite_id,
+                'modeoccupation_id'=>$request->modeoccupation_id,
+                'adresse'=>$request->adresse,
+                'montant_loyer'=>$request->montant_loyer,
+            ]);
+        }
+        else{
+           Implantation::create([
             'viabilite_id'=>$request->viabilite_id,
-         
             'modeoccupation_id'=>$request->modeoccupation_id,
             'adresse'=>$request->adresse,
             'montant_loyer'=>$request->montant_loyer,
-        ]);
-        return $implantation;
+            ]);
+        }
     }
 
     /**

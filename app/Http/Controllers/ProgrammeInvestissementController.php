@@ -81,9 +81,24 @@ class ProgrammeInvestissementController extends Controller
      * @param  \App\Models\ProgrammeInvestissement  $programmeInvestissement
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProgrammeInvestissementRequest $request, ProgrammeInvestissement $programmeInvestissement)
+    public function update(UpdateProgrammeInvestissementRequest $request, $id)
     {
-        //
+        $proginvess = ProgrammeInvestissement::find($id);
+        if($proginvess)
+        {
+            $proginvess->update([
+             'viabilite_id'=>$request->viabilite_id,
+            'nom'=>$request->nom,
+            'prix'=>$request->prix,
+            ]);
+        }
+        else{
+           ProgrammeInvestissement::create([
+            'viabilite_id'=>$request->viabilite_id,
+            'nom'=>$request->nom,
+            'prix'=>$request->prix,
+            ]);
+        }
     }
 
     /**

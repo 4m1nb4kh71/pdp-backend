@@ -84,9 +84,24 @@ class PlanFinancementController extends Controller
      * @param  \App\Models\PlanFinancement  $planFinancement
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePlanFinancementRequest $request, PlanFinancement $planFinancement)
+    public function update(UpdatePlanFinancementRequest $request, $id)
     {
-        //
+        $planfinance = PlanFinancement::find($id);
+        if($planfinance)
+        {
+            $planfinance->update([
+                'viabilite_id'=>$request->viabilite_id,
+                'echelle_id'=>$request->echelle_id,
+                'nom'=>$request->nom,
+            ]);
+        }
+        else{
+           PlanFinancement::create([
+                'viabilite_id'=>$request->viabilite_id,
+                'echelle_id'=>$request->echelle_id,
+                'nom'=>$request->nom,
+            ]);
+        }
     }
 
     /**
