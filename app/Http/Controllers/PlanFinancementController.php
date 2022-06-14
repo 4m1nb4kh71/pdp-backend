@@ -91,15 +91,15 @@ class PlanFinancementController extends Controller
         {
             $planfinance->update([
                 'viabilite_id'=>$request->viabilite_id,
-                'echelle_id'=>$request->echelle_id,
                 'nom'=>$request->nom,
+                'prix'=>$request->prix,
             ]);
         }
         else{
            PlanFinancement::create([
                 'viabilite_id'=>$request->viabilite_id,
-                'echelle_id'=>$request->echelle_id,
                 'nom'=>$request->nom,
+                'prix'=>$request->prix,
             ]);
         }
     }
