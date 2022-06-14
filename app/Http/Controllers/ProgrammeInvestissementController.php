@@ -107,8 +107,8 @@ class ProgrammeInvestissementController extends Controller
      * @param  \App\Models\ProgrammeInvestissement  $programmeInvestissement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProgrammeInvestissement $programmeInvestissement)
+    public function destroy()
     {
-        //
+        ProgrammeInvestissement::whereNotNull('id')->delete();
     }
 }

@@ -108,8 +108,8 @@ class FournisseurController extends Controller
      * @param  \App\Models\Fournisseur  $fournisseur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fournisseur $fournisseur)
+    public function destroy()
     {
-        //
+        Fournisseur::whereNotNull('id')->delete();
     }
 }

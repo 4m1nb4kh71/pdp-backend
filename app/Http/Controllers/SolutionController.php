@@ -130,14 +130,30 @@ class SolutionController extends Controller
      */
     public function update(UpdateSolutionRequest $request, $id)
     {
-        Solution::find($id)->update([
-            'projet_id'=>$request->projet_id,
-            'faisabilite_id'=>$request->faisabilite_id,
-            'originalite_id'=>$request->originalite_id,
-            'marche_id'=>$request->marche_id,
-            'description_besoin'=>$request->description_besoin,
-            'creation_date'=>new Carbon($request->creation_date) ,
-        ]);
+        $solution = Solution::find($id);
+        if($solution){
+            $solution->update([
+                'projet_id'=>$request->projet_id,
+                'faisabilite_id'=>$request->faisabilite_id,
+                'originalite_id'=>$request->originalite_id,
+                'marche_id'=>$request->marche_id,
+                'description_besoin'=>$request->description_besoin,
+                'creation_date'=>new Carbon($request->creation_date) ,
+            ]);
+        }
+        else{
+            $solution = Solution::create([
+                'projet_id'=>$request->projet_id,
+                'faisabilite_id'=>$request->faisabilite_id,
+                'originalite_id'=>$request->originalite_id,
+                'marche_id'=>$request->marche_id,
+                'description_besoin'=>$request->description_besoin,
+                
+                'creation_date'=>new Carbon($request->creation_date) ,
+            ]);
+        }
+        
+        return $solution;
     }
 
     /**

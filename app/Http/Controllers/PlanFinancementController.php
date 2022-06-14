@@ -110,8 +110,8 @@ class PlanFinancementController extends Controller
      * @param  \App\Models\PlanFinancement  $planFinancement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PlanFinancement $planFinancement)
+    public function destroy()
     {
-        //
+        PlanFinancement::whereNotNull('id')->delete();
     }
 }

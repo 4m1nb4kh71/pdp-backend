@@ -135,8 +135,8 @@ class AssocieController extends Controller
      * @param  \App\Models\Associe  $associe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Associe $associe)
+    public function destroy()
     {
-        //
+        Associe::whereNotNull('id')->delete();
     }
 }

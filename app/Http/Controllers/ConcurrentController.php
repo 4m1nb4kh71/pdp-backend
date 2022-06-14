@@ -104,8 +104,8 @@ class ConcurrentController extends Controller
      * @param  \App\Models\Concurrent  $concurrent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Concurrent $concurrent)
+    public function destroy()
     {
-        //
+        Concurrent::whereNotNull('id')->delete();
     }
 }

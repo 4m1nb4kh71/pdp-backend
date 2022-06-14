@@ -112,8 +112,8 @@ class ChiffreAffaireController extends Controller
      * @param  \App\Models\ChiffreAffaire  $chiffreAffaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChiffreAffaire $chiffreAffaire)
+    public function destroy()
     {
-        //
+        ChiffreAffaire::whereNotNull('id')->delete();
     }
 }

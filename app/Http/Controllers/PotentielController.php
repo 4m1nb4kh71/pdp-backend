@@ -140,25 +140,58 @@ class PotentielController extends Controller
      */
     public function update(UpdatePotentielRequest $request, $id)
     {
-            Potentiel::find($id)->update([
-            'scalabilite_adaptabilite'=>$request->scalabilite_adaptabilite,
-            'attractivite_territoir_emplacement'=>$request->attractivite_territoir_emplacement,
-            'croissance_marche'=>$request->croissance_marche,
-            'propre_patron'=>$request->propre_patron,
-            'Exercer_passion'=>$request->Exercer_passion,
-            'Ameliorer_revenus'=>$request->Ameliorer_revenus,
-            'formaliser_activite'=>$request->formaliser_activite,
-            'independent_financierement'=>$request->independent_financierement,
-            'defis'=>$request->defis,
-            'decisions_judicieuses'=>$request->decisions_judicieuses,
-            'realisation_objectifs'=>$request->realisation_objectifs,
-            'prendre_risques'=>$request->prendre_risques,
-            'projet_id'=>$request->projet_id,
-            'motivation_id'=>$request->motivation_id,
-            'complementaire_id'=>$request->complementaire_id,
-            'determination_id'=>$request->determination_id,
-            'creation_date'=>new Carbon($request->creation_date) ,
-        ]);
+            $potentiel = Potentiel::find($id);
+            if($potentiel)
+            {
+                $potentiel->update([
+                    'scalabilite_adaptabilite'=>$request->scalabilite_adaptabilite,
+                    'attractivite_territoir_emplacement'=>$request->attractivite_territoir_emplacement,
+                    'croissance_marche'=>$request->croissance_marche,
+                    'propre_patron'=>$request->propre_patron,
+                    'Exercer_passion'=>$request->Exercer_passion,
+                    'Ameliorer_revenus'=>$request->Ameliorer_revenus,
+                    'formaliser_activite'=>$request->formaliser_activite,
+                    'independent_financierement'=>$request->independent_financierement,
+                    'defis'=>$request->defis,
+                    'decisions_judicieuses'=>$request->decisions_judicieuses,
+                    'realisation_objectifs'=>$request->realisation_objectifs,
+                    'prendre_risques'=>$request->prendre_risques,
+                    'projet_id'=>$request->projet_id,
+                    'motivation_id'=>$request->motivation_id,
+                    'complementaire_id'=>$request->complementaire_id,
+                    'determination_id'=>$request->determination_id,
+                    'creation_date'=>new Carbon($request->creation_date) ,
+                ]);
+            }
+            else{
+                $potentiel = Potentiel::create([
+                    //
+                    //dev pot projet
+                    'scalabilite_adaptabilite'=>$request->scalabilite_adaptabilite,
+                    'attractivite_territoir_emplacement'=>$request->attractivite_territoir_emplacement,
+                    'croissance_marche'=>$request->croissance_marche,
+                    //pot equipe
+                    'propre_patron'=>$request->propre_patron,
+                    'Exercer_passion'=>$request->Exercer_passion,
+                    'Ameliorer_revenus'=>$request->Ameliorer_revenus,
+                    'formaliser_activite'=>$request->formaliser_activite,
+                    'independent_financierement'=>$request->independent_financierement,
+                    'defis'=>$request->defis,
+                    //determination de l'entrepreneur
+                    'decisions_judicieuses'=>$request->decisions_judicieuses,
+                    'realisation_objectifs'=>$request->realisation_objectifs,
+                    'prendre_risques'=>$request->prendre_risques,
+            
+                    'projet_id'=>$request->projet_id,
+                    'motivation_id'=>$request->motivation_id,
+                    'complementaire_id'=>$request->complementaire_id,
+                    'determination_id'=>$request->determination_id,
+            
+                    'creation_date'=>new Carbon($request->creation_date) ,
+                  
+                ]);
+            }
+
   
     }
 
