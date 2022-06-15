@@ -82,9 +82,24 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(UpdateClientRequest $request,$id)
     {
-        //
+        $client = Client::find($id);
+        if($client)
+        {
+            $client->update([
+                'viabilite_id'=>$request->viabilite_id,
+                'echelle_id'=>$request->echelle_id,
+                'nom'=>$request->nom,
+            ]);
+        }
+        else{
+           Client::create([
+            'viabilite_id'=>$request->viabilite_id,
+            'echelle_id'=>$request->echelle_id,
+            'nom'=>$request->nom,
+            ]);
+        }
     }
 
     /**
@@ -93,8 +108,8 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy()
     {
-        //
+        Client::whereNotNull('id')->delete();
     }
 }

@@ -86,12 +86,22 @@ class SolutionItemController extends Controller
      */
     public function update(UpdateSolutionItemRequest $request,$id)
     {
-        $solutionitem = SolutionItem::find($id)->update([
+        $solutionitem = SolutionItem::find($id);
+        if($solutionitem)
+        {
+            $solutionitem->update([
                 'solution_id'=>$request->solution_id,
                 'type_solution_id'=>$request->type_solution_id,
                 'description'=>$request->description,
-        ]);
-        return $solutionitem;
+            ]);
+        }
+        else{
+            SolutionItem::create([
+            'solution_id'=>$request->solution_id,
+            'type_solution_id'=>$request->type_solution_id,
+            'description'=>$request->description,
+            ]);
+        }
     }
 
     /**
@@ -100,8 +110,8 @@ class SolutionItemController extends Controller
      * @param  \App\Models\SolutionItem  $solutionItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SolutionItem $solutionItem)
+    public function destroy()
     {
-        //
+        SolutionItem::whereNotNull('id')->delete();
     }
 }

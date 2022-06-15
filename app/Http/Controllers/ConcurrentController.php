@@ -78,9 +78,24 @@ class ConcurrentController extends Controller
      * @param  \App\Models\Concurrent  $concurrent
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateConcurrentRequest $request, Concurrent $concurrent)
+    public function update(UpdateConcurrentRequest $request, $id)
     {
-        //
+        $concurrent = Concurrent::find($id);
+        if($concurrent)
+        {
+            $concurrent->update([
+                'viabilite_id'=>$request->viabilite_id,
+                'echelle_id'=>$request->echelle_id,
+                'nom'=>$request->nom,
+            ]);
+        }
+        else{
+           Concurrent::create([
+            'viabilite_id'=>$request->viabilite_id,
+            'echelle_id'=>$request->echelle_id,
+            'nom'=>$request->nom,
+            ]);
+        }
     }
 
     /**
@@ -89,8 +104,8 @@ class ConcurrentController extends Controller
      * @param  \App\Models\Concurrent  $concurrent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Concurrent $concurrent)
+    public function destroy()
     {
-        //
+        Concurrent::whereNotNull('id')->delete();
     }
 }

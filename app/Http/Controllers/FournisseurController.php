@@ -82,9 +82,24 @@ class FournisseurController extends Controller
      * @param  \App\Models\Fournisseur  $fournisseur
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFournisseurRequest $request, Fournisseur $fournisseur)
+    public function update(UpdateFournisseurRequest $request,$id)
     {
-        //
+        $fournisseur = Fournisseur::find($id);
+        if($fournisseur)
+        {
+            $fournisseur->update([
+                'viabilite_id'=>$request->viabilite_id,
+                'echelle_id'=>$request->echelle_id,
+                'nom'=>$request->nom,
+            ]);
+        }
+        else{
+           Fournisseur::create([
+            'viabilite_id'=>$request->viabilite_id,
+            'echelle_id'=>$request->echelle_id,
+            'nom'=>$request->nom,
+            ]);
+        }
     }
 
     /**
@@ -93,8 +108,8 @@ class FournisseurController extends Controller
      * @param  \App\Models\Fournisseur  $fournisseur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fournisseur $fournisseur)
+    public function destroy()
     {
-        //
+        Fournisseur::whereNotNull('id')->delete();
     }
 }

@@ -208,13 +208,27 @@ Route::group(['middleware' => ['auth:api']], function () {
 
             //Delete
             Route::delete('/deleteprojet/{id}',[ProjetController::class,'destroy']);
-
+            Route::delete('/deleteclients',[ClientController::class,'destroy']);
+            Route::delete('/deletefournisseurs',[FournisseurController::class,'destroy']);
+            Route::delete('/deleteconcurrents',[ConcurrentController::class,'destroy']);
+            Route::delete('/deleteproginvess',[ProgrammeInvestissementController::class,'destroy']);
+            Route::delete('/deleteplanfinance',[PlanFinancementController::class,'destroy']);
+            Route::delete('/deleteca',[ChiffreAffaireController::class,'destroy']);
+            Route::delete('/deletesolutionitems',[SolutionItemController::class,'destroy']);
+            Route::delete('/deleteassocies',[AssocieController::class,'destroy']);
             //Update
             Route::post('/update_projet/{id}',[ProjetController::class,'update']);
             Route::post('/update_associe/{id}',[AssocieController::class,'update']);
             Route::post('/update_solution/{id}',[SolutionController::class,'update']);
+            Route::post('/update_solutionItems/{id}',[SolutionItemController::class,'update']);
             Route::post('/update_potentiel/{id}',[PotentielController::class,'update']);
             Route::post('/update_viabilite/{id}',[ViabiliteController::class,'update']);
+            Route::post('/update_client/{id}',[ClientController::class,'update']);
+            Route::post('/update_fournisseur/{id}',[FournisseurController::class,'update']);
+            Route::post('/update_concurrent/{id}',[ConcurrentController::class,'update']);
             Route::post('/update_implantation/{id}',[ImplantationController::class,'update']);
+            Route::post('/update_proginvess/{id}',[ProgrammeInvestissementController::class,'update']);
+            Route::post('/update_planfinance/{id}',[PlanFinancementController::class,'update']);
+            Route::post('/update_ca/{id}',[ChiffreAffaireController::class,'update']);
             
 });

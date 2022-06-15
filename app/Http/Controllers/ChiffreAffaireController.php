@@ -82,9 +82,28 @@ class ChiffreAffaireController extends Controller
      * @param  \App\Models\ChiffreAffaire  $chiffreAffaire
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateChiffreAffaireRequest $request, ChiffreAffaire $chiffreAffaire)
+    public function update(UpdateChiffreAffaireRequest $request,$id)
     {
-        //
+        $ca = ChiffreAffaire::find($id);
+        if($ca)
+        {
+            $ca->update([
+            'viabilite_id'=>$request->viabilite_id,
+            'nom'=>$request->nom,
+            'prix_unitaire'=>$request->prix_unitaire,
+            'quantite_vendu'=>$request->quantite_vendu,
+            'total'=>$request->total,
+            ]);
+        }
+        else{
+           ChiffreAffaire::create([
+            'viabilite_id'=>$request->viabilite_id,
+            'nom'=>$request->nom,
+            'prix_unitaire'=>$request->prix_unitaire,
+            'quantite_vendu'=>$request->quantite_vendu,
+            'total'=>$request->total,
+            ]);
+        }
     }
 
     /**
@@ -93,8 +112,8 @@ class ChiffreAffaireController extends Controller
      * @param  \App\Models\ChiffreAffaire  $chiffreAffaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChiffreAffaire $chiffreAffaire)
+    public function destroy()
     {
-        //
+        ChiffreAffaire::whereNotNull('id')->delete();
     }
 }
