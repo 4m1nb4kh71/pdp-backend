@@ -24,7 +24,7 @@ class ProjetResource extends JsonResource
             'id_forsa' => $this->id_forsa,
             'secteur' => $this->secteur,
             'formejuridique_id' => $this->formejuridique_id,
-            'porteur' => $this->associes[0]->nom,
+            'porteur' => count($this->associes)?$this->associes[0]->nom:'',
             'lien'=>$this->lien,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

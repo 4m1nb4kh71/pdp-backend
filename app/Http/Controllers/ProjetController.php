@@ -55,8 +55,6 @@ class ProjetController extends Controller
             'formejuridique_id'=>$request->formejuridique_id,
             'secteur'=>$request->secteur,
             'lien'=>$request->lien,
-            
-                
             ]);
         return new ProjetResource($projet) ;
     }
@@ -99,7 +97,8 @@ class ProjetController extends Controller
             'creation_date'=>new Carbon($request->creation_date) ,
             'id_forsa'=>$request->id_forsa,
             'formejuridique_id'=>$request->formejuridique_id,
-            'secteur'=>$request->secteur
+            'secteur'=>$request->secteur,
+            'lien'=>$request->lien,
         ]);
         $projet = Projet::find($id);
         return $projet;
