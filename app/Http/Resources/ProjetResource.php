@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Associe;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProjetResource extends JsonResource
@@ -13,17 +14,23 @@ class ProjetResource extends JsonResource
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public static $wrap = 'projet';
-    public function toArray($request)
+    public function toArray($id)
     {
         return [
+
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->email,
             'id_forsa' => $this->id_forsa,
             'secteur' => $this->secteur,
             'formejuridique_id' => $this->formejuridique_id,
+            'porteur' => $this->associes[0]->nom,
+          
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+
+
+            
         ];
     }
 }

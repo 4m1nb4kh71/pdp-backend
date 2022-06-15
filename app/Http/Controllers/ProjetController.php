@@ -25,7 +25,7 @@ class ProjetController extends Controller
     {
         //
         $projets = Projet::all();
-        return $projets;
+        return  ProjetResource::collection($projets);
     }
 
     /**
