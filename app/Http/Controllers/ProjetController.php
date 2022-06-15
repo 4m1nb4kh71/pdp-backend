@@ -54,6 +54,7 @@ class ProjetController extends Controller
             'id_forsa'=>$request->id_forsa,
             'formejuridique_id'=>$request->formejuridique_id,
             'secteur'=>$request->secteur,
+            'lien'=>$request->lien,
             
                 
             ]);

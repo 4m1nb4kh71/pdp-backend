@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('croissancenote')->default('0')->nullable();
             $table->string('emplacementnote')->default('0')->nullable();
             $table->text('secteur')->default('secteur');
+            $table->text('lien')->default('lien')->nullable();
 
            // $table->foreign('secteur_id')->references('id')->on('secteurs');
         
