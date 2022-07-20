@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('projet_id')->nullable()->constrained('projets')->onDelete('cascade');
             $table->text('nom')->default('associe name')->change()->nullable();
             $table->text('prenom')->default('associe prenom')->change()->nullable();
-            $table->date('date_naissance')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->date('date_naissance')->default(DB::raw('CURRENT_TIMESTAMP'))->change();
             $table->foreignId('expduration_id')->nullable()->default(1)->constrained('expdurations');
             $table->text('expfield')->default('associe name')->change()->nullable();
             $table->text('type')->default('Proteur de projet')->change()->nullable();
