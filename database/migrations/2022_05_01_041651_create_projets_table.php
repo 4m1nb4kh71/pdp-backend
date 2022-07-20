@@ -17,15 +17,15 @@ return new class extends Migration
             $table->id();
 
             $table->longText('title');
-            $table->longText('description')->default('projet description')->nullable();
+            $table->longText('description')->nullable();
             $table->date('creation_date')->default(now());
-            $table->string('id_forsa')->default('id forsa');
-            $table->string('scalenote')->default('0')->nullable();
-            $table->string('croissancenote')->default('0')->nullable();
-            $table->string('emplacementnote')->default('0')->nullable();
-            $table->text('secteur')->default('secteur');
-            $table->text('lien')->default('lien')->nullable();
-            $table->longText('commentaire')->default('')->nullable();
+            $table->string('id_forsa');
+            $table->string('scalenote')->nullable();
+            $table->string('croissancenote')->nullable();
+            $table->string('emplacementnote')->nullable();
+            $table->text('secteur');
+            $table->text('lien')->nullable();
+            $table->longText('commentaire')->nullable();
             
 
            // $table->foreign('secteur_id')->references('id')->on('secteurs');
