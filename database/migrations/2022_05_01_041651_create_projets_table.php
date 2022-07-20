@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('scalenote')->default('0')->change()->nullable();
             $table->string('croissancenote')->default('0')->change()->nullable();
             $table->string('emplacementnote')->default('0')->change()->nullable();
-            $table->text('secteur')->default('secteur');
+            $table->text('secteur')->default('secteur')->change();
             $table->text('lien')->default('lien')->change()->nullable();
             $table->longText('commentaire')->default('')->change()->nullable();
             
