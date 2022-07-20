@@ -21,6 +21,8 @@ class Projet extends Model
         'formejuridique_id',
         'lien',
         'projet_id',
+        'commentaire',
+        
 
 
 

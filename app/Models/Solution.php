@@ -14,10 +14,7 @@ class Solution extends Model
         'faisabilite_id',
         'originalite_id',
         'marche_id',
-
         'description_besoin',
-        
-        
     ];
 
     public function projet(){
@@ -38,6 +35,9 @@ class Solution extends Model
 
     public function marche(){
         return $this->belongsTo(Marche::class,'marche_id'); 
+    }
+    public function description_besoin(){
+        return $this->belongsTo(Description_besoin::class,'description_besoin'); 
     }
     
 }

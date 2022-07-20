@@ -55,6 +55,8 @@ class ProjetController extends Controller
             'formejuridique_id'=>$request->formejuridique_id,
             'secteur'=>$request->secteur,
             'lien'=>$request->lien,
+            
+            
             ]);
         return new ProjetResource($projet) ;
     }
@@ -99,10 +101,16 @@ class ProjetController extends Controller
             'formejuridique_id'=>$request->formejuridique_id,
             'secteur'=>$request->secteur,
             'lien'=>$request->lien,
+            
         ]);
         $projet = Projet::find($id);
         return $projet;
 
+    }
+    public function updateCommentaire(Request $request, $id){
+        Projet::find($id)->update([
+            'commentaire'=>$request->commentaire,
+        ]);
     }
 
     /**

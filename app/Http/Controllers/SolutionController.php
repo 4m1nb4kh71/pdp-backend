@@ -148,7 +148,6 @@ class SolutionController extends Controller
                 'originalite_id'=>$request->originalite_id,
                 'marche_id'=>$request->marche_id,
                 'description_besoin'=>$request->description_besoin,
-                
                 'creation_date'=>new Carbon($request->creation_date) ,
             ]);
         }

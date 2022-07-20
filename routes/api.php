@@ -218,6 +218,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::delete('/deleteassocies',[AssocieController::class,'destroy']);
             //Update
             Route::post('/update_projet/{id}',[ProjetController::class,'update']);
+            Route::post('/update_commentaire/{id}',[ProjetController::class, 'updateCommentaire']);
             Route::post('/update_associe/{id}',[AssocieController::class,'update']);
             Route::post('/update_solution/{id}',[SolutionController::class,'update']);
             Route::post('/update_solutionItems/{id}',[SolutionItemController::class,'update']);
