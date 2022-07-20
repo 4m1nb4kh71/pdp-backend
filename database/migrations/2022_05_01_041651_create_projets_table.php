@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
 
-            $table->longText('title')->default('projet name')->nullable();
+            $table->longText('title');
             $table->longText('description')->default('projet description')->nullable();
             $table->date('creation_date')->default(now());
             $table->string('id_forsa')->default('id forsa');
