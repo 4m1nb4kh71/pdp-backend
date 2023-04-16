@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\SolutionResource;
 use App\Models\Associe;
+use App\Models\Potentiel;
 use App\Models\Projet;
 use App\Models\Solution;
 use App\Models\Viabilite;
@@ -40,7 +41,7 @@ class ExportController extends Controller
     public function store(Request $request)
     {
         //
-        
+
     }
 
     /**
@@ -51,41 +52,43 @@ class ExportController extends Controller
      */
     public function show($id)
     {
-        
-        $associes= Associe::where("projet_id",$id)->get();
-        $projet= Projet::find($id)->get();
-        $solution= Solution::where("projet_id",$id)->first();
-        $solutionitem= $solution->solutionitem;
-        $fournisseurs= Viabilite::where("projet_id",$id)->first()->fournisseur;
-        $clients= Viabilite::where("projet_id",$id)->first()->client;
-        $concurrents= Viabilite::where("projet_id",$id)->first()->concurrent;
-        $programmeinvestissement= Viabilite::where("projet_id",$id)->first()->programmeinvestissement;
-        $planfinancement= Viabilite::where("projet_id",$id)->first()->planfinancement;
-        $chiffreaffaire= Viabilite::where("projet_id",$id)->first()->chiffreaffaire;
+
+        $associes = Associe::where("projet_id", $id)->get();
+        $projet = Projet::where("id", $id)->get();;
+        $solution = Solution::where("projet_id", $id)->first();
+        $solutionitem = $solution->solutionitem;
+        $fournisseurs = Viabilite::where("projet_id", $id)->first()->fournisseur;
+        $clients = Viabilite::where("projet_id", $id)->first()->client;
+        $concurrents = Viabilite::where("projet_id", $id)->first()->concurrent;
+        $programmeinvestissement = Viabilite::where("projet_id", $id)->first()->programmeinvestissement;
+        $planfinancement = Viabilite::where("projet_id", $id)->first()->planfinancement;
+        $chiffreaffaire = Viabilite::where("projet_id", $id)->first()->chiffreaffaire;
+        $estima = Viabilite::where("projet_id", $id)->get();
+        $potentiel = Potentiel::where("projet_id", $id)->get();
 
         return (object) [
-            'associes'=>$associes,
-            'projet'=>$projet,
-          
-            'solution'=>(Object)[
-                'besoin_identifie'=>new SolutionResource($solution),
-                'solution_propose'=>$solutionitem,
+            'associes' => $associes,
+            'projet' => $projet,
+            "potentiel" => $potentiel,
+            'solution' => (object)[
+                'besoin_identifie' => new SolutionResource($solution),
+                'solution_propose' => $solutionitem,
             ],
-            'viabilite'=>(Object)[
-                'clients'=>$clients,
-                'fournisseurs'=>$fournisseurs,
-                'concurrents'=>$concurrents,
-                'programme_investissement'=>$programmeinvestissement,
-                'plan_financement'=>$planfinancement,
-                'chiffre_affaire'=>$chiffreaffaire,
-                
-            ],
-           
-            
-           
-            
-        ];
+            'viabilite' => (object)[
+                'clients' => $clients,
+                'fournisseurs' => $fournisseurs,
+                'concurrents' => $concurrents,
+                'programme_investissement' => $programmeinvestissement,
+                'plan_financement' => $planfinancement,
+                'chiffre_affaire' => $chiffreaffaire,
+                "estimation" => $estima,
 
+            ],
+
+
+
+
+        ];
     }
 
     /**

@@ -16,20 +16,20 @@ return new class extends Migration
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
 
-            $table->longText('title')->default('projet name');
-            $table->longText('description')->default('projet description')->nullable();
-            $table->date('creation_date')->default(now());
-            $table->string('id_forsa')->default('id forsa');
+            $table->longText('title');
+            $table->longText('description')->nullable();
+            $table->date('creation_date')->nullable();
+            $table->string('id_forsa')->nullable();
 
-            $table->string('scalenote')->default('0')->nullable();
-            $table->string('croissancenote')->default('0')->nullable();
-            $table->string('emplacementnote')->default('0')->nullable();
-            $table->text('secteur')->default('secteur');
+            $table->string('scalenote')->nullable();
+            $table->string('croissancenote')->nullable();
+            $table->string('emplacementnote')->nullable();
+            $table->text('secteur')->nullable();
 
            // $table->foreign('secteur_id')->references('id')->on('secteurs');
         
 
-            $table->foreignId('formejuridique_id')->nullable()->default(1)->constrained('formejuridiques');
+            $table->foreignId('formejuridique_id')->nullable()->constrained('formejuridiques');
            
             $table->timestamps();
         });

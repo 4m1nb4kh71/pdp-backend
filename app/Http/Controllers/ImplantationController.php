@@ -41,13 +41,12 @@ class ImplantationController extends Controller
     {
         //
         $implantation = Implantation::create([
-            'viabilite_id'=>$request->viabilite_id,
-         
-            'modeoccupation_id'=>$request->modeoccupation_id,
-            'adresse'=>$request->adresse,
-            'montant_loyer'=>$request->montant_loyer,
-      
-            ]);
+            'viabilite_id' => $request->viabilite_id,
+            'modeoccupation_id' => $request->modeoccupation_id,
+            'adresse' => $request->adresse,
+            'montant_loyer' => $request->montant_loyer,
+
+        ]);
         return new ImplantationResource($implantation);
     }
 
@@ -57,9 +56,10 @@ class ImplantationController extends Controller
      * @param  \App\Models\Implantation  $implantation
      * @return \Illuminate\Http\Response
      */
-    public function show(Implantation $implantation)
+    public function show($id)
     {
-        //
+        $impli = Implantation::where("viabilite_id", $id)->get();
+        return $impli;
     }
 
     /**
