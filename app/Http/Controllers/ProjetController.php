@@ -16,7 +16,8 @@ class ProjetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function filters(){
+    public function filters()
+    {
         $formejuridiques = Formejuridique::all();
         return $formejuridiques;
     }
@@ -46,17 +47,19 @@ class ProjetController extends Controller
     public function store(StoreProjetRequest $request)
     {
         //
+
         $projet = Projet::create([
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'creation_date'=>new Carbon($request->creation_date) ,
-            'id_forsa'=>$request->id_forsa,
-            'formejuridique_id'=>$request->formejuridique_id,
-            'secteur'=>$request->secteur,
-            
-                
-            ]);
-        return new ProjetResource($projet) ;
+            'title' => $request->title,
+            'description' => $request->description,
+            'creation_date' => new Carbon($request->creation_date),
+            'id_forsa' => $request->id_forsa,
+            'formejuridique_id' => $request->formejuridique_id,
+            'secteur' => $request->secteur,
+            'lien' => $request->lien,
+
+
+        ]);
+        return new ProjetResource($projet);
     }
 
     /**
