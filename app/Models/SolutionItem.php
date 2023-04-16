@@ -12,7 +12,6 @@ class SolutionItem extends Model
     protected $fillable=[
         'solution_id',
         'type_solution_id',
-       
         'description',
     ];
     public function solution(){

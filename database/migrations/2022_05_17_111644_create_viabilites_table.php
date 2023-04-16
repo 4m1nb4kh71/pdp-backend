@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('viabilites', function (Blueprint $table) {
             $table->id();
             $table->text('nombrepostecrees');
-             $table->foreignId('projet_id')->nullable()->constrained('projets');
-             $table->foreignId('client_estimation')->nullable()->references('id')->on('estimations');
-             $table->foreignId('concurrent_estimation')->nullable()->references('id')->on('estimations');
-             $table->foreignId('fournisseur_estimation')->nullable()->references('id')->on('estimations');
-             $table->foreignId('investissement_estimation')->nullable()->references('id')->on('estimations');
-             $table->foreignId('financement_estimation')->nullable()->references('id')->on('estimations');
-             $table->foreignId('ca_estimation')->nullable()->references('id')->on('estimations');
+            $table->foreignId('projet_id')->nullable()->constrained('projets');
+            $table->foreignId('client_estimation')->nullable()->references('id')->on('estimations')->onDelete("cascade");
+            $table->foreignId('concurrent_estimation')->nullable()->references('id')->on('estimations')->onDelete("cascade");;
+            $table->foreignId('fournisseur_estimation')->nullable()->references('id')->on('estimations')->onDelete("cascade");;
+            $table->foreignId('investissement_estimation')->nullable()->references('id')->on('estimations')->onDelete("cascade");;
+            $table->foreignId('financement_estimation')->nullable()->references('id')->on('estimations')->onDelete("cascade");;
+            $table->foreignId('ca_estimation')->nullable()->references('id')->on('estimations')->onDelete("cascade");;
             $table->timestamps();
         });
     }

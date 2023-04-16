@@ -11,4 +11,7 @@ class Formejuridique extends Model
     protected $fillable = [
         'nom'
     ];
+    public function porjets(){
+        return $this->hasMany(Projet::class,"formejuridique_id");
+    }
 }

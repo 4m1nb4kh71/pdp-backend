@@ -20,7 +20,7 @@ return new class extends Migration
 
             $table->date('creation_date')->default(now())->nullable();
 
-           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
+           $table->foreignId('viabilite_id')->nullable()->constrained('viabilites')->onDelete("cascade");;
             $table->timestamps();
         });
     }

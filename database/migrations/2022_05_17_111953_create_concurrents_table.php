@@ -18,8 +18,8 @@ return new class extends Migration
 
             $table->text('nom')->nullable();
             $table->date('creation_date')->default(now());
-            $table->foreignId('echelle_id')->nullable()->constrained('echelles');
-            $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
+            $table->foreignId('echelle_id')->nullable()->constrained('echelles')->onDelete("cascade");;
+            $table->foreignId('viabilite_id')->nullable()->constrained('viabilites')->onDelete("cascade");;
 
             $table->timestamps();
         });

@@ -7,6 +7,8 @@ use App\Http\Requests\StoreProjetRequest;
 use App\Http\Requests\UpdateProjetRequest;
 use App\Http\Resources\ProjetResource;
 use App\Models\Formejuridique;
+use App\Models\Solution;
+use App\Models\SolutionItem;
 use Carbon\Carbon;
 
 class ProjetController extends Controller
@@ -103,8 +105,15 @@ class ProjetController extends Controller
      * @param  \App\Models\Projet  $projet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Projet $projet)
+    public function destroy($id)
     {
-        //
+        $projet = Projet::find($id);
+        $solution = Solution::where("projet_id", $id)->get();
+        $solution[0]->solutionitem()->delete();
+        $projet->solutions()->delete();
+        $projet->potentiels()->delete();
+        $projet->viabilite()->delete();
+        $projet->fomrJuri()->delete();
+        $projet->delete();
     }
 }

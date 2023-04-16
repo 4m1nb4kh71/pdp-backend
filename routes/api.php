@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth:api']], function () {
   //projets crud
   Route::get('/projets', [ProjetController::class, 'index']);
   Route::post('/create_projet', [ProjetController::class, 'store']);
+  Route::delete('/deleteprojet/{id}', [ProjetController::class, 'destroy']);
 
   Route::get('users', [AuthController::class, 'index']);
   //associe filters

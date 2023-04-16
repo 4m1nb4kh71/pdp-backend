@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('programme_investissement')->nullable();
             $table->text('ressource_financement')->nullable();
             $table->text('processus_producion_fabrication')->nullable();
-            $table->foreignId('viabilite_id')->nullable()->constrained('viabilites');
+            $table->foreignId('viabilite_id')->nullable()->constrained('viabilites')->onDelete("cascade");;
 
             
             
