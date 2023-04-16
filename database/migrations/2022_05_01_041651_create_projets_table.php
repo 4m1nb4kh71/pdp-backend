@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('emplacementnote')->nullable();
             $table->text('secteur')->nullable();
             // $table->foreign('secteur_id')->references('id')->on('secteurs');
-            $table->foreignId('formejuridique_id')->nullable()->constrained('formejuridiques')->cascadeOnDelete();;
+            $table->foreignId('formejuridique_id')->nullable()->constrained('formejuridiques');
 
             $table->timestamps();
         });

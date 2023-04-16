@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth:api']], function () {
   //Viabilite filters
   Route::get('/viabilite_filters', [ViabiliteController::class, 'filters']);
   //projets crud
-  Route::get('/projets', [ProjetController::class, 'index']);
+  Route::get('/projets', [ProjetController::class, 'index'])->name('projets');;
   Route::post('/create_projet', [ProjetController::class, 'store']);
   Route::delete('/deleteprojet/{id}', [ProjetController::class, 'destroy']);
 

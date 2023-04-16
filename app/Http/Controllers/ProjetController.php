@@ -61,7 +61,8 @@ class ProjetController extends Controller
 
 
         ]);
-        return new ProjetResource($projet);
+
+        return redirect()->to(route("projets"))->with(['message' => 'Successfully deleted!!']);
     }
 
     /**
@@ -109,11 +110,11 @@ class ProjetController extends Controller
     {
         $projet = Projet::find($id);
         $solution = Solution::where("projet_id", $id)->get();
-        $solution[0]->solutionitem()->delete();
+
         $projet->solutions()->delete();
         $projet->potentiels()->delete();
         $projet->viabilite()->delete();
-        $projet->fomrJuri()->delete();
+       
         $projet->delete();
     }
 }
